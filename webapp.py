@@ -2,10 +2,14 @@ from flask import Flask, jsonify, render_template, request
 
 app = Flask(__name__)
 
-@app.route('/') 
+@app.route('/', methods=["GET","POST"]) 
 def homepage(): 
     try:
-        return render_template('home.html'), 200
+        if request.method == 'POST':
+            room_number = request.form.get('room')
+            return render_template('room.html', room=room_number), 200
+        else:
+            return render_template('home.html'), 200
     except:
         return "", 400
 
