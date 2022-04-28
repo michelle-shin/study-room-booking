@@ -1,0 +1,27 @@
+[
+    {
+        "room_number": "557",
+        "availibility": [
+            {
+                "time_slot": "8:00",
+                "available": "Yes",
+                "booked_by": "A01283117"
+            },
+            {
+                "time_slot": "9:00",
+                "available": "No",
+                "booked_by": ""
+            }
+        ]
+    },
+    {
+        "room_number": "662",
+        "availibility": [
+            {
+                "time_slot": "11:00",
+                "available": "No",
+                "booked_by": ""
+            }
+        ]
+    }
+]
