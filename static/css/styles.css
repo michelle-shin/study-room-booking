@@ -1,3 +1,34 @@
-h1 {
-    color: black;
+* {
+    margin: 0;
+    padding: 0;
+  }
+body{
+    background-color: #FFFBF5;
+    height: 100%;
+    width: 100%;
 }
+
+.tbroom {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+  
+.tbroom td{
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+}
+  
+.tbroom th{
+    border: 2px double #dddddd;
+    text-align: center;
+    padding: 10px;
+    background-color: #2f2f96;
+    color:#dddddd;
+}
+
+h2{
+    text-align: center;
+}
+
