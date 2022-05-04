@@ -1,31 +1,37 @@
 <html>
     <head>
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+        <link rel="stylesheet" href="../static/css/styles.css">
+
         <title>
             Study Room Booking
         </title>
     </head>
-    <body>     
-        <h1>Study Room Booking</h1>
+    <body>
+    <div class = "container">
+        <header>
+            <h1 class ="title">Study Room Booking</h1>
+            <nav class ="nav">
+                <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="room.html">Room</a></li>
+                </ul>
+                </nav>
+        </header>
         <br>
-            <h4>Rooms Available</h4>
             <form action="" method="POST">
                 <select name="room" id="room-select">
                     <option value="">--Please choose a study room--</option>
-
-                    <!-- <option name="room" value="582">Room 582</option>
-                    <option name="room" value="583">Room 583</option>
-                    <option name="room" value="586">Room 586</option>
-                    <option name="room" value="587">Room 587</option>
-                    <option name="room" value="666">Room 666</option>
-                    <option name="room" value="667">Room 667</option>  
-                    <option name="room" value="668">Room 668</option> -->
-                    
-                    {% for room in rooms %}
-                        <option name="room" value="{{ room }}">Room {{ room }}</option>
-                    {% endfor %}
+                    <option value="582">Room 582</option>
+                    <option value="583">Room 583</option>
+                    <option value="586">Room 586</option>
+                    <option value="587">Room 587</option>
+                    <option value="666">Room 666</option>
+                    <option value="667">Room 667</option>  
+                    <option value="668">Room 668</option>    
                 </select>
-                <button type="submit">Select</button>
+                <button type="submit" class = "bt2">Select</button>
             </form>
+            
+            </div>
     </body> 
 </html>
