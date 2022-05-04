@@ -10,25 +10,20 @@ def homepage():
         data = json.load(fp)
     BCIT = Rooms(data)
     try:
-        if request.method == 'POST':
-            room_number = request.form.get('room')
-            return render_template('room.html', room=BCIT.get_room_data(room_number), number=room_number), 200
+        booking = request.form.get('booking')
+        room_number = request.form.get('room')
+        if request.method == 'POST' and booking is not None:
+            room, time_slot = booking.split(',')
+            BCIT.get_room(room).book("A01283117", time_slot)
+            BCIT.save_to_json()
+            print(room, time_slot)
+            return render_template('home.html', methods=['GET','POST'], rooms=BCIT.get_room_numbers()), 200
+        elif request.method == 'POST' and room_number is not None:
+            return render_template('room.html', methods=['GET','POST'], room=room_number, availabilities=BCIT.get_room_availability(room_number)), 200
         else:
-            return render_template('home.html', rooms=BCIT.get_rooms()), 200
+            return render_template('home.html', methods=['GET','POST'], rooms=BCIT.get_room_numbers()), 200
     except:
         return "", 400
-
-def get_room_numbers(data):
-    room_numbers = []  
-    for index in range(len(data)):
-        room_number = data[index]["room_number"]
-        room_numbers.append(room_number)
-    return room_numbers
-
-def get_room_details(data, room_number):
-    for index in range(len(data)):
-        if room_number == data[index]["room_number"]:
-            return 
 
 if __name__ == "__main__":
     app.run(debug=True)

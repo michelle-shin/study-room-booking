@@ -5,6 +5,13 @@
         <title>
             Study Room Booking
         </title>
+
+        <script>
+            function sendData(data) {
+                document.getElementById("myButton2").value = data;
+            }
+        </script>
+
     </head>
     <body>     
         <h1>Timeslots for room {{ room }}</h1>
@@ -18,7 +25,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <!-- <tr>
                         <td>8:00 - 9:00</td>
                         <td class="yes">Yes</td>
                         <td><button type="submit">Book</button></td>
@@ -67,7 +74,21 @@
                         <td>17:00 - 18:00</td>
                         <td class="no">No</td>
                         <td><button type="submit">Book</button></td>
+                    </tr> -->
+
+                    {% for availability in availabilities %}
+                    {% set slot=availability["time_slot"] %}
+                    <tr>
+                        <td>{{ availability["time_slot"] }}</td>
+                        <td class="no">{{ availability["available"] }}</td>
+                        <td>
+                        {% if availability["available"]=="Yes" %}
+                            <button name="booking" type="submit" value="{{ room }},{{ slot}}">Book</button>
+                        {% endif %}
+                        </td>
                     </tr>
+                    {% endfor %}
+
                 </tbody>
                 </table>
             </form>

@@ -10,3 +10,4 @@ class Availability():
         availability_as_dict["available"] = self.available
         availability_as_dict["booked_by"] = self.booked_by
         return availability_as_dict
+

@@ -32,3 +32,8 @@ h2{
     text-align: center;
 }
 
+.hidden {
+    display: block;
+    visibility: hidden;
+    font-size: 0;
+}

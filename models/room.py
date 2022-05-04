@@ -12,6 +12,12 @@ class Room():
         room_booking["availability"] = self.availability
         return room_booking
 
+    def book(self, id, time_slot):
+        for availability in self.availability:
+            if availability["time_slot"]==time_slot:
+                availability["available"] = "No"
+                availability["booked_by"] = id
+
 
     # def details(self):
     #     print(self.number)
