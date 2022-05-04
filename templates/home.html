@@ -1,13 +1,23 @@
 <html>
     <head>
         <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+        <link rel="stylesheet" href="../static/css/styles.css">
         <title>
             Study Room Booking
         </title>
     </head>
-    <body>     
-        <h1>Study Room Booking</h1>
-        <br>
+    <body> 
+        <div class = "container">
+            <header>
+                <h1 class ="title">Study Room Booking</h1>
+                <nav class ="nav">
+                    <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="room.html">Room</a></li>
+                    </ul>
+                    </nav>
+            </header>
+            <br>    
             <h4>Rooms Available</h4>
             <form action="" method="POST">
                 <select name="room" id="room-select">
@@ -25,7 +35,7 @@
                         <option name="room" value="{{ room }}">Room {{ room }}</option>
                     {% endfor %}
                 </select>
-                <button type="submit">Select</button>
+                <button type="submit" class="bt2">Select</button>
             </form>
     </body> 
 </html>

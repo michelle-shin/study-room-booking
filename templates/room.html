@@ -5,15 +5,15 @@
         <title>
             Study Room Booking
         </title>
-
-        <script>
-            function sendData(data) {
-                document.getElementById("myButton2").value = data;
-            }
-        </script>
-
     </head>
-    <body>     
+    <body>
+        <h1 class ="title">Study Room Booking</h1>
+        <nav class ="nav">
+            <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="room.html">Room</a></li>
+            </ul>
+            </nav>   
         <h1>Timeslots for room {{ room }}</h1>
             <form action="" method="POST">
                 <table class = "tbroom" id="myTable">
@@ -25,6 +25,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                    
                     <!-- <tr>
                         <td>8:00 - 9:00</td>
                         <td class="yes">Yes</td>
@@ -83,7 +84,7 @@
                         <td class="no">{{ availability["available"] }}</td>
                         <td>
                         {% if availability["available"]=="Yes" %}
-                            <button name="booking" type="submit" value="{{ room }},{{ slot}}">Book</button>
+                            <button name="booking" type="submit" class="bt1" value="{{ room }},{{ slot}}">Book</button>
                         {% endif %}
                         </td>
                     </tr>
