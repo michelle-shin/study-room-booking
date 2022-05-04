@@ -1,17 +1,66 @@
 * {
     margin: 0;
     padding: 0;
-  }
-body{
-    background-color: #FFFBF5;
+}
+.container{
+    background-image: url('2456.jpg');
     height: 100%;
     width: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    background-size: 100% 100%;
 }
+body{
+height: 100%;
+width: 100%;
+}
+nav{    
+    position: sticky;
+    top: -1px;
+    overflow: hidden;
+    background-color: #2f2f96;
+    font-size: 20px;
+    text-align: right;
+    word-spacing: 10px;
+    width:100%;
+    z-index: 1;
+}
+
+.nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav ul li{
+    display: inline-block;
+}
+
+.title{
+    text-align: center;
+    text-decoration:underline;
+    background-color: #4242af;
+    color: #FFFBF5;
+}
+a:visited{
+    color:#FFFBF5;
+}
+a:link{
+    color: #FFFBF5;
+  }
+a:hover{
+    color:#E07A5F;
+  }
+a:active{
+    color:#E07A5F;
+  }
 
 .tbroom {
     font-family: arial, sans-serif;
     border-collapse: collapse;
-    width: 100%;
+    width:90%;
+    margin-left: 5%;
+    margin-top: 2%;
 }
   
 .tbroom td{
@@ -27,13 +76,71 @@ body{
     background-color: #2f2f96;
     color:#dddddd;
 }
-
+.tbroom tr:nth-child(even) {
+    background-color: #dddddd;
+  }
 h2{
     text-align: center;
 }
+footer {
+    display: flex;
+    margin-top: 43%;
+    justify-content: center;
+    align-items: center;
+    background-color: #2f2f96;
+  }
+  
+.bt{
+    background-color: #dddddd;
+    font-size: 15px;
+    padding: 10px;
+    border-radius: 3px;
+    border: 1;
+    margin: 10px;
+    font-family: 'Libre Baskerville', serif;
+    text-align: center;
+  }
 
-.hidden {
-    display: block;
-    visibility: hidden;
-    font-size: 0;
+.bt:hover{
+    text-decoration: underline;
+}
+.bt:visited,.bt:active{
+    color:#000000;
+
+}
+#room-select{
+    background-position:center;
+    background-size: auto 50%;
+    border-radius:2px;
+    color: #ffffff;
+    padding: 10px 30px 10px 10px;
+    background-color: #2f2f96;
+    align-items: center;
+    width:50%;
+    margin-left: 25%;
+    margin-top:5%;
+    font-size: 15px;
+}
+.bt1{
+    background-color: green ;
+    font-size: 15PX;
+    color: #dddddd;
+    padding: 3%;
+
+}
+.bt1:hover{
+    color:#E07A5F;
+    padding: 4%;
+}
+
+.bt2{
+    background-color: green ;
+    font-size: 13px;
+    color: #dddddd;
+    padding: 11px;
+
+}
+.bt2:hover{
+    color:#E07A5F;
+    padding: 13px;
 }
