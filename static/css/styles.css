@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
 }
+
 .container{
     background-image: url('2456.jpg');
     height: 100%;
@@ -9,6 +10,13 @@
     background-repeat: no-repeat;
     background-attachment: fixed; 
     background-size: 100% 100%;
+}
+.img-fluid{
+    width: 150px;
+    height:75px;
+    overflow: hidden;
+
+
 }
 body{
 height: 100%;
@@ -19,8 +27,8 @@ nav{
     top: -1px;
     overflow: hidden;
     background-color: #2f2f96;
-    font-size: 20px;
-    text-align: right;
+    font-size: 30px;
+    text-align: center;
     word-spacing: 10px;
     width:100%;
     z-index: 1;
@@ -41,7 +49,22 @@ nav{
     text-decoration:underline;
     background-color: #4242af;
     color: #FFFBF5;
+    margin-top: 0%;
+    font-size: 30px;
+    display: flex;
+    align-items:center;
+ 
+    }
+
+.logo{
+        text-align: center;
+        text-decoration:underline;
+        margin-top: 0%;
+        font-size: 40px;
+        display: flex;
+        align-items:center;
 }
+
 a:visited{
     color:#FFFBF5;
 }
@@ -66,13 +89,13 @@ a:active{
 .tbroom td{
     border: 1px solid #dddddd;
     text-align: center;
-    padding: 8px;
+    padding: 5px;
 }
   
 .tbroom th{
     border: 2px double #dddddd;
     text-align: center;
-    padding: 10px;
+    padding: 8px;
     background-color: #2f2f96;
     color:#dddddd;
 }
@@ -81,6 +104,7 @@ a:active{
   }
 h2{
     text-align: center;
+    margin-top: 0%;
 }
 footer {
     display: flex;
