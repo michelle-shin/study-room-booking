@@ -1,6 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Quicksand', sans-serif;
+    text-decoration: none;
 }
 
 .container{
@@ -11,17 +15,18 @@
     background-attachment: fixed; 
     background-size: 100% 100%;
 }
+
 .img-fluid{
     width: 150px;
     height:75px;
     overflow: hidden;
-
-
 }
+
 body{
-height: 100%;
-width: 100%;
+    height: 100%;
+    width: 100%;
 }
+
 nav{    
     position: sticky;
     top: -1px;
@@ -44,39 +49,48 @@ nav{
     display: inline-block;
 }
 
+.nav li a{
+    text-decoration: none;
+}
+
 .title{
     text-align: center;
-    text-decoration:underline;
+    text-decoration: none;
     background-color: #4242af;
     color: #FFFBF5;
     margin-top: 0%;
     font-size: 30px;
     display: flex;
     align-items:center;
- 
-    }
+}
 
 .logo{
-        text-align: center;
-        text-decoration:underline;
-        margin-top: 0%;
-        font-size: 40px;
-        display: flex;
-        align-items:center;
+    text-align: center;
+    margin-top: 0%;
+    font-size: 40px;
+    display: flex;
+    align-items:center;
+}
+
+h2.title{
+    text-decoration: none;
 }
 
 a:visited{
     color:#FFFBF5;
 }
+
 a:link{
     color: #FFFBF5;
-  }
+}
+
 a:hover{
     color:#E07A5F;
-  }
+}
+
 a:active{
     color:#E07A5F;
-  }
+}
 
 .tbroom {
     font-family: arial, sans-serif;
@@ -99,20 +113,23 @@ a:active{
     background-color: #2f2f96;
     color:#dddddd;
 }
+
 .tbroom tr:nth-child(even) {
     background-color: #dddddd;
-  }
+}
+
 h2{
     text-align: center;
     margin-top: 0%;
 }
+
 footer {
     display: flex;
     margin-top: 43%;
     justify-content: center;
     align-items: center;
     background-color: #2f2f96;
-  }
+}
   
 .bt{
     background-color: #dddddd;
@@ -123,15 +140,16 @@ footer {
     margin: 10px;
     font-family: 'Libre Baskerville', serif;
     text-align: center;
-  }
+}
 
 .bt:hover{
     text-decoration: underline;
 }
+
 .bt:visited,.bt:active{
     color:#000000;
-
 }
+
 #room-select{
     background-position:center;
     background-size: auto 50%;
@@ -145,13 +163,14 @@ footer {
     margin-top:5%;
     font-size: 15px;
 }
+
 .bt1{
     background-color: green ;
     font-size: 15PX;
     color: #dddddd;
     padding: 3%;
-
 }
+
 .bt1:hover{
     color:#E07A5F;
     padding: 4%;
@@ -162,8 +181,8 @@ footer {
     font-size: 13px;
     color: #dddddd;
     padding: 11px;
-
 }
+
 .bt2:hover{
     color:#E07A5F;
     padding: 13px;
