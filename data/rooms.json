@@ -9,44 +9,20 @@
       },
       {
         "time_slot": "9:00 - 10:00",
-        "available": "Yes",
-        "booked_by": ""
+        "available": "No",
+        "booked_by": "A01283117"
       },
       {
         "time_slot": "10:00 - 11:00",
-        "available": "Yes",
-        "booked_by": ""
-      },
-      {
-        "time_slot": "11:00 - 12:00",
-        "available": "Yes",
-        "booked_by": ""
-      },
-      {
-        "time_slot": "12:00 - 13:00",
-        "available": "Yes",
-        "booked_by": ""
-      },
-      {
-        "time_slot": "13:00 - 14:00",
-        "available": "Yes",
-        "booked_by": ""
-      },
-      {
-        "time_slot": "14:00 - 15:00",
-        "available": "Yes",
-        "booked_by": ""
-      },
-      {
-        "time_slot": "15:00 - 16:00",
-        "available": "Yes",
-        "booked_by": ""
-      },
-      {
-        "time_slot": "16:00 - 17:00",
         "available": "No",
-        "booked_by": ""
-      }
+        "booked_by": "A01283117"
+      },
+      { "time_slot": "11:00 - 12:00", "available": "Yes", "booked_by": "" },
+      { "time_slot": "12:00 - 13:00", "available": "Yes", "booked_by": "" },
+      { "time_slot": "13:00 - 14:00", "available": "Yes", "booked_by": "" },
+      { "time_slot": "14:00 - 15:00", "available": "Yes", "booked_by": "" },
+      { "time_slot": "15:00 - 16:00", "available": "Yes", "booked_by": "" },
+      { "time_slot": "16:00 - 17:00", "available": "No", "booked_by": "" }
     ]
   },
   {
@@ -57,46 +33,18 @@
         "available": "Yes",
         "booked_by": "A01283117"
       },
-      {
-        "time_slot": "9:00 - 10:00",
-        "available": "No",
-        "booked_by": ""
-      },
-      {
-        "time_slot": "10:00 - 11:00",
-        "available": "Yes",
-        "booked_by": ""
-      },
-      {
-        "time_slot": "11:00 - 12:00",
-        "available": "No",
-        "booked_by": ""
-      },
+      { "time_slot": "9:00 - 10:00", "available": "No", "booked_by": "" },
+      { "time_slot": "10:00 - 11:00", "available": "Yes", "booked_by": "" },
+      { "time_slot": "11:00 - 12:00", "available": "No", "booked_by": "" },
       {
         "time_slot": "12:00 - 13:00",
-        "available": "Yes",
-        "booked_by": ""
-      },
-      {
-        "time_slot": "13:00 - 14:00",
         "available": "No",
-        "booked_by": ""
+        "booked_by": "A01283117"
       },
-      {
-        "time_slot": "14:00 - 15:00",
-        "available": "Yes",
-        "booked_by": ""
-      },
-      {
-        "time_slot": "15:00 - 16:00",
-        "available": "Yes",
-        "booked_by": ""
-      },
-      {
-        "time_slot": "16:00 - 17:00",
-        "available": "Yes",
-        "booked_by": ""
-      }
+      { "time_slot": "13:00 - 14:00", "available": "No", "booked_by": "" },
+      { "time_slot": "14:00 - 15:00", "available": "Yes", "booked_by": "" },
+      { "time_slot": "15:00 - 16:00", "available": "Yes", "booked_by": "" },
+      { "time_slot": "16:00 - 17:00", "available": "Yes", "booked_by": "" }
     ]
   },
   {
@@ -107,46 +55,14 @@
         "available": "No",
         "booked_by": "A01283117"
       },
-      {
-        "time_slot": "9:00 - 10:00",
-        "available": "Yes",
-        "booked_by": ""
-      },
-      {
-        "time_slot": "10:00 - 11:00",
-        "available": "Yes",
-        "booked_by": ""
-      },
-      {
-        "time_slot": "11:00 - 12:00",
-        "available": "Yes",
-        "booked_by": ""
-      },
-      {
-        "time_slot": "12:00 - 13:00",
-        "available": "Yes",
-        "booked_by": ""
-      },
-      {
-        "time_slot": "13:00 - 14:00",
-        "available": "Yes",
-        "booked_by": ""
-      },
-      {
-        "time_slot": "14:00 - 15:00",
-        "available": "Yes",
-        "booked_by": ""
-      },
-      {
-        "time_slot": "15:00 - 16:00",
-        "available": "Yes",
-        "booked_by": ""
-      },
-      {
-        "time_slot": "16:00 - 17:00",
-        "available": "Yes",
-        "booked_by": ""
-      }
+      { "time_slot": "9:00 - 10:00", "available": "Yes", "booked_by": "" },
+      { "time_slot": "10:00 - 11:00", "available": "Yes", "booked_by": "" },
+      { "time_slot": "11:00 - 12:00", "available": "Yes", "booked_by": "" },
+      { "time_slot": "12:00 - 13:00", "available": "Yes", "booked_by": "" },
+      { "time_slot": "13:00 - 14:00", "available": "Yes", "booked_by": "" },
+      { "time_slot": "14:00 - 15:00", "available": "Yes", "booked_by": "" },
+      { "time_slot": "15:00 - 16:00", "available": "Yes", "booked_by": "" },
+      { "time_slot": "16:00 - 17:00", "available": "Yes", "booked_by": "" }
     ]
   }
 ]
