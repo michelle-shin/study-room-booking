@@ -3,18 +3,30 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
         <link rel="stylesheet" href="../static/css/styles.css">
         <title>
-            Study Room Booking
+            Book Study Space
         </title>
 
     </head>
     <body>     
-        <h1>Timeslots for room {{ room }}</h1>
-        <nav class ="nav">
-            <ul>
-            <li><a href="home">Home</a></li>
-            <li><a href="room">Room</a></li>
-            </ul>
-        </nav>
+        <header>
+        <div class ="title">
+            <div class ="logo">
+            <a href="https://www.bcit.ca/">
+                <img src="/static/css/bcit-logo.png" class="img-fluid"> 
+            </a>
+            <h2 class ="title">Book Study Space</h2>
+            </div>
+        </div>
+            <nav class ="nav">
+                <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="">Veiw-By-Room</a></li>
+                <li><a href="">View-By-Time</a></li>
+                <li><a href="">View-Booked-Rooms</a></li>
+                </ul>
+            </nav>
+        </header>
+        <h2>Timeslots for room {{ room }}</h2>
             <form action="" method="POST">
                 <table class = "tbroom" id="myTable">
                 <thead>
@@ -28,54 +40,54 @@
                     <!-- <tr>
                         <td>8:00 - 9:00</td>
                         <td class="yes">Yes</td>
-                        <td><button type="submit">Book</button></td>
+                        <td><button type="submit" class = "bt1">Book</button></td>
                     </tr>
                     <tr>
                         <td>9:00 - 10:00</td>
                         <td class="yes">Yes</td>
-                        <td><button type="submit">Book</button></td>
+                        <td><button type="submit" class = "bt1">Book</button></td>
                     </tr>
                     <tr>
                         <td>10:00 - 11:00</td>
                         <td class="no">No</td>
-                        <td><button type="submit">Book</button></td>
+                        <td><button type="submit"class = "bt1">Book</button></td>
                     </tr>
                     <tr>
                         <td>11:00 - 12:00</td>
                         <td class="yes">Yes</td>
-                        <td><button type="submit">Book</button></td>
+                        <td><button type="submit"class = "bt1">Book</button></td>
                     </tr>
                     <tr>
                         <td>12:00 - 13:00</td>
                         <td class="no">No</td>
-                        <td><button type="submit">Book</button></td>
+                        <td><button type="submit"class = "bt1">Book</button></td>
                     </tr>
                     <tr>
                         <td>13:00 - 14:00</td>
                         <td class="yes">Yes</td>
-                        <td><button type="submit">Book</button></td>
+                        <td><button type="submit"class = "bt1">Book</button></td>
                     </tr>
                     <tr>
                         <td>14:00 - 15:00</td>
                         <td class="yes">Yes</td>
-                        <td><button type="submit">Book</button></td>
+                        <td><button type="submit"class = "bt1">Book</button></td>
                     </tr>
                     <tr>
                         <td>15:00 - 16:00</td>
                         <td class="yes">Yes</td>
-                        <td><button type="submit">Book</button></td>
+                        <td><button type="submit"class = "bt1">Book</button></td>
                     </tr>
                     <tr>
                         <td>16:00 - 17:00</td>
                         <td class="no">No</td>
-                        <td><button type="submit">Book</button></td>
+                        <td><button type="submit"class = "bt1">Book</button></td>
                     </tr>
                     <tr>
                         <td>17:00 - 18:00</td>
                         <td class="no">No</td>
-                        <td><button type="submit">Book</button></td>
-                    </tr> -->
-
+                        <td><button type="submit"class = "bt1">Book</button></td>
+                    </tr>                     -->
+                    
                     {% for availability in availabilities %}
                     {% set slot=availability["time_slot"] %}
                     <tr>
@@ -90,7 +102,7 @@
                     {% endfor %}
 
                 </tbody>
-                </table>
-            </form>
-    </body> 
+            </table>
+        </form>
+</body> 
 </html>
