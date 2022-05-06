@@ -34,7 +34,7 @@ nav{
     background-color: #2f2f96;
     font-size: 30px;
     text-align: center;
-    word-spacing: 10px;
+    word-spacing: 35px;
     width:100%;
     z-index: 1;
 }
@@ -121,6 +121,7 @@ a:active{
 h2{
     text-align: center;
     margin-top: 0%;
+    margin-left: 20px;
 }
 
 footer {
