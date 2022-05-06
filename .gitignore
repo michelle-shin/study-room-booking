@@ -6,3 +6,6 @@ models/__pycache__/room.cpython-39.pyc
 models/__pycache__/test_rooms.cpython-39-pytest-6.2.5.pyc
 models/__pycache__/test_availability.cpython-39-pytest-6.2.5.pyc
 models/__pycache__/test_room.cpython-39-pytest-6.2.5.pyc
+models/__pycache__/test_availability.cpython-39-pytest-7.1.1.pyc
+models/__pycache__/test_room.cpython-39-pytest-7.1.1.pyc
+models/__pycache__/test_rooms.cpython-39-pytest-7.1.1.pyc

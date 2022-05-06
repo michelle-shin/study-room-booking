@@ -1,2 +1,2 @@
 import pytest
-from rooms import Rooms
+from models.rooms import Rooms

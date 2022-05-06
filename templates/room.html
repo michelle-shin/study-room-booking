@@ -6,6 +6,12 @@
             Book Study Space
         </title>
 
+        <script>
+            function flash(){
+                alert("Room Booked Successfuly.")
+            }
+        </script>
+        
     </head>
     <body>     
         <header>
@@ -95,7 +101,7 @@
                         <td class="no">{{ availability["available"] }}</td>
                         <td>
                         {% if availability["available"]=="Yes" %}
-                            <button name="booking" type="submit" class="bt1" value="{{ room }},{{ slot}}">Book</button>
+                            <button name="booking" type="submit" class="bt1" value="{{ room }},{{ slot}}" onclick=flash()>Book</button>
                         {% endif %}
                         </td>
                     </tr>

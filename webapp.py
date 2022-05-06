@@ -16,7 +16,7 @@ def homepage():
             room, time_slot = booking.split(',')
             BCIT.get_room(room).book("A01283117", time_slot)
             BCIT.save_to_json()
-            return render_template('room.html', methods=['GET','POST'], room=room, availabilities=BCIT.get_room_availability(room)), 200
+            return render_template('room.html', methods=['GET','POST'], room=room, availabilities=BCIT.get_room_availability(room), booked_succesfuly="True"), 200
         elif request.method == 'POST' and room_number is not None and room_number!="":
             return render_template('room.html', methods=['GET','POST'], room=room_number, availabilities=BCIT.get_room_availability(room_number)), 200
         else:
