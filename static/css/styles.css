@@ -188,3 +188,26 @@ footer {
     color:#E07A5F;
     padding: 13px;
 }
+
+
+#time-select{
+    background-position:center;
+    background-size: auto 50%;
+    border-radius:2px;
+    color: #ffffff;
+    padding: 10px 30px 10px 10px;
+    background-color: #2f2f96;
+    align-items: center;
+    width:50%;
+    margin-left: 25%;
+    margin-top:5%;
+    font-size: 15px;
+}
+
+
+.cancel{
+    background-color: green ;
+    font-size: 15PX;
+    color: #dddddd;
+    padding: 3%;
+}

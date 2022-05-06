@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+        <link rel="stylesheet" href="../static/css/styles.css">
+        <title>
+            Book Study Space
+        </title>
+    </head>
+    <body>
+        <div class = "container">
+        <header>   
+            <div class ="title">
+                <div class ="logo">
+                <a href="https://www.bcit.ca/">
+                    <img src="/static/css/bcit-logo.png" class="img-fluid"> 
+                </a>
+                <h2 class ="title">Book Study Space</h2>
+                </div>
+            </div>
+            <nav class ="nav">
+                <ul>
+                    <li><a href="">Home</a></li>
+                    <li><a href="">View-by-rooms</a></li>
+                    <li><a href="">View-by-timeslots</a></li>
+                    <li><a href="">View-bookings</a></li>
+                </ul>
+            </nav>
+        </header>
+        <br>
+            <form action="" method="POST">
+                <select name="time" id="time-select">
+                    <option value="">--Please choose a timeslot--</option>
+
+                    <option name="time" value="582">8:00-9:00</option>
+                    <option name="time" value="583">9:00-10:00</option>
+                    <option name="time" value="586">10:00-11:00</option>
+                    
+                    <!-- {% for room in rooms %}
+                        <option name="room" value="{{ room }}">Room {{ room }}</option>
+                    {% endfor %} -->
+                </select>
+                <button type="submit" class="bt2">Select</button>
+            </form>
+    </body> 
+</html>

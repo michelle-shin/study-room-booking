@@ -3,14 +3,14 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
         <link rel="stylesheet" href="../static/css/styles.css">
         <title>
-            Book Study Space
+            <!-- Book Study Space
         </title>
 
         <script>
             function flash(){
                 alert("Room Booked Successfuly.")
             }
-        </script>
+        </script> -->
         
     </head>
     <body>     
@@ -32,29 +32,34 @@
                 </ul>
             </nav>
         </header>
-        <h2>Timeslots for room {{ room }}</h2>
+        <h2>Available rooms for selected {{ timeslot }</h2>
             <form action="" method="POST">
                 <table class = "tbroom" id="myTable">
                 <thead>
                     <tr>
+                        <th>Room</th>
                         <th>Timeslots</th>
-                        <th>Availability</th>
-                        <th>Book</th>
+                        <th>Cancel</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- <tr>
-                        <td>8:00 - 9:00</td>
-                        <td class="yes">Yes</td>
-                        <td><button type="submit" class = "bt1">Book</button></td>
+                    <tr>
+                        <td>555</td>
+                        <td>8:00-9:00</td>
+                        <td><button type="submit" class = "cancel">Cancel Booking</button></td>
                     </tr>
                     <tr>
-                        <td>9:00 - 10:00</td>
-                        <td class="yes">Yes</td>
-                        <td><button type="submit" class = "bt1">Book</button></td>
-                    </tr> -->
+                        <td>558</td>
+                        <td>8:00-9:00</td>
+                        <td><button type="submit" class = "cancel">Cancel Booking</button></td>
+                    </tr>
+                    <tr>
+                        <td>666</td>
+                        <td>8:00-9:00</td>
+                        <td><button type="submit" class = "cancel">Cancel Booking</button></td>
+                    </tr>
                                        
-                    {% for availability in availabilities %}
+                    <!-- {% for availability in availabilities %}
                     {% set slot=availability["time_slot"] %}
                     <tr>
                         <td>{{ availability["time_slot"] }}</td>
@@ -65,7 +70,7 @@
                         {% endif %}
                         </td>
                     </tr>
-                    {% endfor %}
+                    {% endfor %} -->
 
                 </tbody>
             </table>
