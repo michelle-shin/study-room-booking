@@ -17,11 +17,3 @@ class Room():
             if availability["time_slot"]==time_slot:
                 availability["available"] = "No"
                 availability["booked_by"] = id
-
-
-    # def details(self):
-    #     print(self.number)
-    #     for availability in self.availability:
-    #         print(availability["time_slot"])
-    #         print(availability["available"])
-    #         print(availability["booked_by"])
