@@ -6,9 +6,8 @@ app = Flask(__name__)
 
 @app.route('/', methods=["GET","POST"]) 
 def homepage(): 
-    with open('data/rooms.json') as fp:
-        data = json.load(fp)
-    BCIT = Rooms(data)
+    path = './data/rooms.json'
+    BCIT = Rooms(path)
     try:
         booking = request.form.get('booking')
         room_number = request.form.get('room')
@@ -26,9 +25,8 @@ def homepage():
 
 @app.route('/home', methods=["GET","POST"]) 
 def home(): 
-    with open('data/rooms.json') as fp:
-        data = json.load(fp)
-    BCIT = Rooms(data)
+    path = './data/rooms.json'
+    BCIT = Rooms(path)
     try:
         booking = request.form.get('booking')
         room_number = request.form.get('room')
@@ -46,9 +44,8 @@ def home():
 
 @app.route('/room', methods=["GET","POST"]) 
 def room(): 
-    with open('data/rooms.json') as fp:
-        data = json.load(fp)
-    BCIT = Rooms(data)
+    path = './data/rooms.json'
+    BCIT = Rooms(path)
     try:
         booking = request.form.get('booking')
         room_number = request.form.get('room')
@@ -61,6 +58,17 @@ def room():
             return render_template('room.html', methods=['GET','POST'], room=room_number, availabilities=BCIT.get_room_availability(room_number)), 200
         else:
             return render_template('home.html', methods=['GET','POST'], rooms=BCIT.get_room_numbers()), 200
+    except:
+        return "", 400
+
+@app.route('/timeslot', methods=["GET","POST"]) 
+def timeslot(): 
+    path = './data/rooms.json'
+    BCIT = Rooms(path)
+    try:
+        booking = request.form.get('booking')
+        room_number = request.form.get('room')
+        return render_template('timeslot.html')
     except:
         return "", 400
 

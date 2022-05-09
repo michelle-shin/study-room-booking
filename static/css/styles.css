@@ -98,14 +98,16 @@ a:active{
     width:90%;
     margin-left: 5%;
     margin-top: 2%;
+    background-color: white;
 }
   
 .tbroom td{
     border: 1px solid #dddddd;
     text-align: center;
     padding: 5px;
+    background-color: white;
 }
-  
+
 .tbroom th{
     border: 2px double #dddddd;
     text-align: center;
@@ -203,7 +205,6 @@ footer {
     margin-top:5%;
     font-size: 15px;
 }
-
 
 .cancel{
     background-color: green ;

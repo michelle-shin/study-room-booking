@@ -56,7 +56,7 @@
                                        
                     {% for availability in availabilities %}
                     {% set slot=availability["time_slot"] %}
-                    <tr>
+                    <tr class="green">
                         <td>{{ availability["time_slot"] }}</td>
                         <td class="no">{{ availability["available"] }}</td>
                         <td>

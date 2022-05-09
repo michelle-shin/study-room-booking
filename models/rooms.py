@@ -3,8 +3,10 @@ from models.availability import Availability
 import json
 
 class Rooms():
-    def __init__(self, data):
+    def __init__(self, path):
 
+        with open(path) as fp:
+            data = json.load(fp)
         self.rooms_list = []
 
         for index in range(len(data)):
