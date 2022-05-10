@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <title>Login</title>
+</head>
+<body class="login-main"> 
+    <div class="loginBox"> 
+        <img class="user" src="../static\css\login-icon.png" height="120px" width="120px">
+        <h3>Study Room Booking Login</h3>
+        <form action="login.php" method="post">
+            <div class="inputBox"> 
+                <input id="uname" type="text" name="Username" placeholder="Student ID"> 
+                <input id="pass" type="password" name="Password" placeholder="Password"> 
+            </div> 
+                <input type="submit" name="" value="Login">
+        </form>  
+    </div>
+</body>
+</html>
