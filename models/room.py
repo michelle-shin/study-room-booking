@@ -17,3 +17,10 @@ class Room():
             if availability["time_slot"]==time_slot:
                 availability["available"] = "No"
                 availability["booked_by"] = id
+    
+    def cancel_booking(self, id, time_slot):
+        for availability in self.availability:
+            if availability["time_slot"]==time_slot:
+                availability["available"] = "Yes"
+                availability["booked_by"] = ""
+

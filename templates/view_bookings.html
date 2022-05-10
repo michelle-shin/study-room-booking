@@ -8,7 +8,7 @@
         
         <script>
             function flash(){
-                alert("Room Booked Successfuly.")
+                alert("Room Booking cancelled.")
             }
         </script>
 
@@ -32,7 +32,7 @@
                 </ul>
             </nav>
         </header>
-        <h2>Rooms available for selected timeslot</h2>
+        <h2>Rooms booked</h2>
             <form action="" method="POST">
                 <table class = "tbroom" id="myTable">
                 <thead>
@@ -43,14 +43,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for room in rooms %}
+                    {% for booking in bookings %}
+                    {% set room_number=booking[0] %}
+                    {% set time_slot=booking[1] %}
                     <tr>
-                            <td>{{ room.number }}</td>
-                            <td>{{ time_slot }}</td>
-                            <td><button name="booking" type="submit" class = "bt1" value="{{ room.number }},{{ time_slot }}" onclick="flash()">Book</button></td>
+                        <td> {{ room_number }} </td>
+                        <td> {{ time_slot }}</td>
+                        <td><button name="booking" type="submit" class = "bt1" value="{{ room_number }},{{ time_slot }}" onclick="flash()">Cancel</button></td>
                     </tr>
                     {% endfor %}
-
                 </tbody>
             </table>
         </form>

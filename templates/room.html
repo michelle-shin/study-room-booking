@@ -26,9 +26,9 @@
             <nav class ="nav">
                 <ul>
                     <li><a href="">Home</a></li>
-                    <li><a href="">View-by-Rooms</a></li>
-                    <li><a href="">View-by-Timeslots</a></li>
-                    <li><a href="">View-Bookings</a></li>
+                    <li><a href="/rooms">View-by-Rooms</a></li>
+                    <li><a href="/timeslots">View-by-Timeslots</a></li>
+                    <li><a href="/view_bookings">View-Bookings</a></li>
                 </ul>
             </nav>
         </header>
@@ -42,18 +42,7 @@
                         <th>Book</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <!-- <tr>
-                        <td>8:00 - 9:00</td>
-                        <td class="yes">Yes</td>
-                        <td><button type="submit" class = "bt1">Book</button></td>
-                    </tr>
-                    <tr>
-                        <td>9:00 - 10:00</td>
-                        <td class="yes">Yes</td>
-                        <td><button type="submit" class = "bt1">Book</button></td>
-                    </tr> -->
-                                       
+                <tbody>                                       
                     {% for availability in availabilities %}
                     {% set slot=availability["time_slot"] %}
                     <tr class="green">
@@ -61,7 +50,7 @@
                         <td class="no">{{ availability["available"] }}</td>
                         <td>
                         {% if availability["available"]=="Yes" %}
-                            <button name="booking" type="submit" class="bt1" value="{{ room }},{{ slot}}" onclick=flash()>Book</button>
+                            <button name="booking" type="submit" class="bt1" value="{{ room }},{{ slot }}" onclick=flash()>Book</button>
                         {% endif %}
                         </td>
                     </tr>

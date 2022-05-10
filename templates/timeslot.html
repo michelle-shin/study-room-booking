@@ -20,24 +20,20 @@
             <nav class ="nav">
                 <ul>
                     <li><a href="">Home</a></li>
-                    <li><a href="">View-by-rooms</a></li>
-                    <li><a href="">View-by-timeslots</a></li>
-                    <li><a href="">View-bookings</a></li>
+                    <li><a href="/rooms">View-by-Rooms</a></li>
+                    <li><a href="/timeslots">View-by-Timeslots</a></li>
+                    <li><a href="/view_bookings">View-Bookings</a></li>
                 </ul>
             </nav>
         </header>
         <br>
             <form action="" method="POST">
-                <select name="time" id="time-select">
-                    <option value="">--Please choose a timeslot--</option>
-
-                    <option name="time" value="582">8:00-9:00</option>
-                    <option name="time" value="583">9:00-10:00</option>
-                    <option name="time" value="586">10:00-11:00</option>
+                <select name="timeslot" id="time-select">
+                    <option>--Please choose a timeslot--</option>
                     
-                    <!-- {% for room in rooms %}
-                        <option name="room" value="{{ room }}">Room {{ room }}</option>
-                    {% endfor %} -->
+                    {% for timeslot in timeslots %}
+                        <option name="timeslot" value="{{ timeslot }}">{{ timeslot }}</option>
+                    {% endfor %}
                 </select>
                 <button type="submit" class="bt2">Select</button>
             </form>

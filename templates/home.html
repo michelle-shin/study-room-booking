@@ -20,25 +20,16 @@
             <nav class ="nav">
                 <ul>
                     <li><a href="">Home</a></li>
-                    <li><a href="">View-by-Rooms</a></li>
-                    <li><a href="/timeslot">View-by-Timeslots</a></li>
-                    <li><a href="">View-Bookings</a></li>
+                    <li><a href="/rooms">View-by-Rooms</a></li>
+                    <li><a href="/timeslots">View-by-Timeslots</a></li>
+                    <li><a href="/view_bookings">View-Bookings</a></li>
                 </ul>
             </nav>
         </header>
         <br>
             <form action="" method="POST">
                 <select name="room" id="room-select">
-                    <option value="">--Please choose a study room--</option>
-
-                    <!-- <option name="room" value="582">Room 582</option>
-                    <option name="room" value="583">Room 583</option>
-                    <option name="room" value="586">Room 586</option>
-                    <option name="room" value="587">Room 587</option>
-                    <option name="room" value="666">Room 666</option>
-                    <option name="room" value="667">Room 667</option>  
-                    <option name="room" value="668">Room 668</option> -->
-                    
+                    <option value="">--Please choose a study room--</option>                    
                     {% for room in rooms %}
                         <option name="room" value="{{ room }}">Room {{ room }}</option>
                     {% endfor %}
