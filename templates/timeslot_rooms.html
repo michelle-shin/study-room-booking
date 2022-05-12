@@ -1,57 +1,66 @@
 <html>
-    <head>
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-        <link rel="stylesheet" href="../static/css/styles.css">
-        <title>
-            Book Study Space
-        </title>
-        
-        <script>
-            function flash(){
-                alert("Room Booked Successfuly.")
-            }
-        </script>
+  <head>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/styles.css') }}"
+    />
+    <link rel="stylesheet" href="../static/css/styles.css" />
+    <title>Book Study Space</title>
 
-    </head>
-    <body>     
-        <header>
-        <div class ="title">
-            <div class ="logo">
-            <a href="https://www.bcit.ca/">
-                <img src="/static/css/bcit-logo.png" class="img-fluid"> 
-            </a>
-            <h2 class ="title">Book Study Space</h2>
-            </div>
+    <script>
+      function flash() {
+        alert("Room Booked Successfuly.");
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <div class="title">
+        <div class="logo">
+          <a href="https://www.bcit.ca/">
+            <img src="/static/css/bcit-logo.png" class="img-fluid" />
+          </a>
+          <h2 class="title">Book Study Space</h2>
         </div>
-            <nav class ="nav">
-                <ul>
-                    <li><a href="/rooms">View-by-Rooms</a></li>
-                    <li><a href="/timeslots">View-by-Timeslots</a></li>
-                    <li><a href="/view_bookings">View-Bookings</a></li>
-                </ul>
-            </nav>
-        </header>
-        <h2>Rooms available for selected timeslot</h2>
-            <form action="" method="POST">
-                <table class = "tbroom" id="myTable">
-                <thead>
-                    <tr>
-                        <th>Room</th>
-                        <th>Timeslots</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for room in rooms %}
-                    <tr>
-                            <td>{{ room.number }}</td>
-                            <td>{{ time_slot }}</td>
-                            <td><button name="booking" type="submit" class = "bt1" value="{{ room.number }},{{ time_slot }}" onclick="flash()">Book</button></td>
-                    </tr>
-                    {% endfor %}
-
-                </tbody>
-            </table>
-        </form>
-</body> 
+      </div>
+      <nav class="nav">
+        <ul>
+          <li><a href="/rooms">View-by-Rooms</a></li>
+          <li><a href="/timeslots">View-by-Timeslots</a></li>
+          <li><a href="/view_bookings">View-Bookings</a></li>
+        </ul>
+      </nav>
+    </header>
+    <h2>Rooms available for selected timeslot</h2>
+    <form action="" method="POST">
+      <table class="tbroom" id="myTable">
+        <thead>
+          <tr>
+            <th>Room</th>
+            <th>Timeslots</th>
+            <th>Book</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for room in rooms %}
+          <tr>
+            <td>{{ room.number }}</td>
+            <td>{{ time_slot }}</td>
+            <td>
+              <button
+                name="booking"
+                type="submit"
+                class="bt1"
+                value="{{ room.number }},{{ time_slot }}"
+                onclick="flash()"
+              >
+                Book
+              </button>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </form>
+  </body>
 </html>
