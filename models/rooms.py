@@ -1,4 +1,3 @@
-from re import A
 from models.room import Room
 from models.availability import Availability
 import json
@@ -20,24 +19,28 @@ class Rooms():
                 room.add_availability(Availability(time_slot, available, booked_by))
             self.rooms_list.append(room)
 
+    #returns a list of all room numbers
     def get_room_numbers(self):
         rooms = []
         for room in self.rooms_list:
             rooms.append(room.number)
         return rooms
 
+    #returns a room object as per given room number
     def get_room(self, room_number):
         for room in self.rooms_list:
             if room.number == room_number:
                 return room
         return None
 
+    #returns availability of the given room number
     def get_room_availability(self, room_number):
         for room in self.rooms_list:
             if room.number == room_number:
                 return room.availability
         return None
 
+    #returns a list of unbooked time slots
     def get_time_slots(self):
         available_slots = []
         for room in self.rooms_list:
@@ -56,6 +59,7 @@ class Rooms():
 
         return available_slots
 
+    #returns a list of rooms as per given timeslot
     def get_rooms_with_timeslot(self, time_slot):
         rooms = []
         for room in self.rooms_list:
@@ -64,6 +68,7 @@ class Rooms():
                     rooms.append(room)
         return rooms
 
+    #returns a list of booked rooms as per given student id
     def get_booked_rooms(self, student_id):
         rooms = []
         for room in self.rooms_list:

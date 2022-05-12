@@ -12,6 +12,12 @@ class Room():
         room_booking["availability"] = self.availability
         return room_booking
 
+    #returns availibility of a room of given timeslot
+    def get_availibility(self, time_slot):
+        for availibiity in self.availability:
+            if availibiity["time_slot"]==time_slot:
+                return availibiity
+
     def book(self, id, time_slot):
         for availability in self.availability:
             if availability["time_slot"]==time_slot:
@@ -20,7 +26,7 @@ class Room():
     
     def cancel_booking(self, id, time_slot):
         for availability in self.availability:
-            if availability["time_slot"]==time_slot:
+            if availability["time_slot"]==time_slot and availability["booked_by"]==id:
                 availability["available"] = "Yes"
                 availability["booked_by"] = ""
 
