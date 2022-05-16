@@ -397,3 +397,11 @@ h3 {
     color:#fff;
     margin-top: 30px;
 }
+.right-side {
+    float:right; 
+    margin-left: 65%;
+}
+#logout{
+    margin-left: 15%;
+    font-size: 20px;
+}
