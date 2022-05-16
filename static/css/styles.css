@@ -213,143 +213,187 @@ footer {
     padding: 3%;
 }
 
-.login-main{
+.login-main {
+    background-color:#f9fafb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin: 0;
-    padding: 0;  
-    height: 100vh;
-    font-family: sans-serif;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    overflow: hidden
+    min-height: 100vh;
 }
 
-.loginBox{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    width: 350px;
-    min-height: 200px;
-    background: #d8dde6;
-    border-radius: 10px;
-    padding: 40px;
-    box-sizing: border-box
+.loginBox {
+    background-color: #d8dde6;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    border-radius: 5px;
+    width: 400px;
+    border-radius: 20px;
 }
 
 .user{
     margin: 0 auto;
     display: block;
-    margin-bottom: 20px;
+    margin-top: 30px;
 }
 
-h3{
-    margin: 0;
-    padding: 0 0 20px;
+h3 {
+    text-align: center;
+    margin-bottom: 40px;
     color: #2f2f96;
     text-align: center;
-    font-size: 16px;
+    font-size: 23px;
 }
 
-.loginBox input{
+.login-form {
+    padding: 30px 40px;
+}
+
+.inputBox {
+    margin-bottom: 25px;
+    padding-bottom: 5px;
+    position: relative;
+}
+
+.inputBox label {
+    display: block;
+    color: rgb(0, 0, 0);
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+.inputBox input {
+    border: 2px solid #f0f0f0;
+    border-radius: 4px;
+    display: block;
     width: 100%;
-    margin-bottom: 20px
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 14px;
 }
 
-.loginBox input[type="text"], .loginBox input[type="password"] {
-    border: none;
-    border-bottom: 2px solid #262626;
-    outline: none;
-    height: 40px;
-    background: transparent;
-    font-size: 16px;
-    padding-left: 20px;
-    box-sizing: border-box
+.inputBox input:focus {
+    outline: 0;
+    color:#777;
 }
 
-.loginBox input[type="text"]:hover, .loginBox input[type="password"]:hover{
-    color: #2f2f96;
-    border: 1px solid #2f2f96;
-    box-shadow: 0 0 5px rgba(21, 0, 255, 0.411), 0 0 10px rgba(21, 0, 255, 0.411), 0 0 15px rgba(21, 0, 255, 0.411), 0 2px 0 black
-}
-
-.inputBox span{
-    position: absolute;
-    top: 10px;
-    color: #262626
+.loginBox input[type="text"]:hover, input[type="password"]:hover {
+    border: 1px solid #7979b8;
+    box-shadow: 0 0 5px rgba(220, 219, 229, 0.411), 0 0 10px rgba(220, 219, 229, 0.411), 0 0 15px rgba(225, 224, 236, 0.411), 0 2px 0 black
 }
 
 .loginBox input[type="submit"]{
-    border: none;
-    outline: none;
-    height: 40px;
+    cursor: pointer;
+    background-color: #2f2f96;
+    border: 2px solid #2f2f96;
+    display: block;
+    padding: 10px;
+    width: 100%;
     font-size: 16px;
-    background: #2f2f96;
-    color: #fff;
+    border-radius: 30px;
+    color:#fff;
+    margin-top: 30px;
+}
+
+:root {
+    --success-color:#2ecc71;
+    --error-color:#e74c3c;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.signup-body {
+    background-color:#f9fafb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    min-height: 100vh;
+}
+
+.signup-container {
+    background-color: #d8dde6;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    border-radius: 5px;
+    width: 400px;
     border-radius: 20px;
-    cursor: pointer
 }
 
-.signup-main{
-    margin: 0;
-    padding: 0;  
-    height: 100vh;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    overflow: hidden
-}
-
-.signupBox{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    width: 350px;
-    min-height: 200px;
-    background: #d8dde6;
-    border-radius: 10px;
-    padding: 40px;
-    box-sizing: border-box
-}
-
-.signup-h3{
-    margin: 0;
-    padding: 0 0 50px;
+.signup-h3 {
+    text-align: center;
+    margin: 0 0 20px;
     color: #2f2f96;
     text-align: center;
-    font-size: 30px;
+    font-size: 24px;
 }
 
-.signupBox input{
+#signup-form {
+    padding: 30px 40px;
+}
+
+.form-control {
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    position: relative;
+}
+
+.form-control label {
+    display: block;
+    color: rgb(0, 0, 0);
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+.form-control input {
+    border: 2px solid #f0f0f0;
+    border-radius: 4px;
+    display: block;
     width: 100%;
-    margin-bottom: 20px
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 14px;
 }
 
-.signupBox input[type="text"] {
-    border: 1px solid #5073b9;
-    border-bottom: 2px solid #5073b9;
-    outline: none;
-    height: 40px;
-    background: transparent;
+.form-control input:focus {
+    outline: 0;
+    color:#777;
+}
+
+.form-control.success input {
+    border-color:var(--success-color);
+}
+
+.form-control.error input {
+    border-color:var(--error-color);
+}
+
+.form-control small {
+    color: var(--error-color);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    visibility: hidden;
+}
+
+.form-control.error small {
+    visibility: visible;
+}
+
+.signup-container input[type="text"]:hover, input[type="password"]:hover {
+    border: 1px solid #7979b8;
+    box-shadow: 0 0 5px rgba(220, 219, 229, 0.411), 0 0 10px rgba(220, 219, 229, 0.411), 0 0 15px rgba(225, 224, 236, 0.411), 0 2px 0 black
+}
+
+.signup-container input[type="submit"]{
+    cursor: pointer;
+    background-color: #2f2f96;
+    border: 2px solid #2f2f96;
+    display: block;
+    padding: 10px;
+    width: 100%;
     font-size: 16px;
-    padding-left: 20px;
-    box-sizing: border-box
-}
-
-.signupBox input[type="text"]:hover{
-    color: #2f2f96;
-    border: 1px solid #2f2f96;
-    box-shadow: 0 0 5px rgba(21, 0, 255, 0.411), 0 0 10px rgba(21, 0, 255, 0.411), 0 0 15px rgba(21, 0, 255, 0.411), 0 2px 0 black
-}
-
-.signupBox input[type="submit"] {
-    border: none;
-    outline: none;
-    height: 40px;
-    font-size: 16px;
-    background: #2f2f96;
-    color: #fff;
-    border-radius: 20px;
-    cursor: pointer
+    border-radius: 30px;
+    color:#fff;
+    margin-top: 30px;
 }

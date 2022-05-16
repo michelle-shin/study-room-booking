@@ -9,16 +9,24 @@
     <title>Login</title>
 </head>
 <body class="login-main"> 
+
     <div class="loginBox"> 
         <img class="user" src="../static\css\login-icon.png" height="120px" width="120px">
-        <h3>Study Room Booking Login</h3>
-        <form action="login.php" method="post">
+        <form action="login.php" method="post" class="login-form">
+            <h3>Study Room Booking Login</h3>
             <div class="inputBox"> 
-                <input id="uname" type="text" name="Username" placeholder="Student ID"> 
-                <input id="pass" type="password" name="Password" placeholder="Password"> 
+                <label for="stuID">Student ID</label>
+                <input id="stuID" type="text" name="Student ID" placeholder="Student ID"> 
             </div> 
-                <input type="submit" name="" value="Login">
-                <input type="submit" name="" value="Sign Up">
+
+            <div class="inputBox">
+                <label for="password">Password</label>
+                <input id="password" type="password" name="Password" placeholder="Password"> 
+            </div> 
+
+            <input type="submit" name="" value="Login">
+            <input type="submit" name="" value="Sign Up">
+
         </form>  
     </div>
 </body>

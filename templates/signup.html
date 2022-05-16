@@ -8,18 +8,36 @@
     <link rel="stylesheet" href="../static/css/styles.css">
     <title>Sign UP</title>
 </head>
-<body class="signup-main"> 
-    <div class="signupBox"> 
-        <h3 class="signup-h3">Sign Up</h3>
-        <form action="" method="post">
-            <div class="inputBox-signun"> 
-                <input id="name" type="text" name="Name" placeholder="Name"> 
-                <input id="stuID" type="text" name="stuID" placeholder="Student ID"> 
-                <input id="email" type="text" name="Email" placeholder="Email"> 
-                <input id="password" type="text" name="Password" placeholder="Password"> 
-            </div> 
-                <input type="submit" name="" value="Sign Up">
-        </form>  
-    </div>
-</body>
-</html>
+<body class="signup-body">
+
+   <div class="signup-container">
+      <form method="post" action="" id="signup-form">
+          <h3 class="signup-h3">Sign up here</h3>
+          <div class="form-control">
+              <label for="studentID">Student ID</label>
+              <input type="text" id="studentID" placeholder="Student ID must start with 'A0'">
+              <small>Error message</small>
+          </div>
+
+          <div class="form-control">
+              <label for="email">Email</label>
+              <input type="text" id="email" placeholder="user@my.bcit.ca">
+              <small>Error message</small>
+          </div>
+
+          <div class="form-control">
+              <label for="password">Password</label>
+              <input type="password" id="password" placeholder="Enter password">
+              <small>Error message</small>
+          </div>
+
+          <div class="form-control">
+              <label for="password2">Confirm Password</label>
+              <input type="password" id="password2" placeholder="Re-enter password">
+              <small>Error message</small>
+          </div>
+
+          <input type="submit" name="" value="Sign Up">
+
+      </form>
+  </div>
