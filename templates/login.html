@@ -10,13 +10,6 @@
 </head>
 <body class="login-main"> 
 
-    <div class="loginBox"> 
-        <img class="user" src="../static\css\login-icon.png" height="120px" width="120px">
-        <form action="login.php" method="post" class="login-form">
-            <h3>Study Room Booking Login</h3>
-            <div class="inputBox"> 
-                <label for="stuID">Student ID</label>
-                <input id="stuID" type="text" name="Student ID" placeholder="Student ID"> 
     {% if id_exists=="no"%}
     <script>
         window.onload = function flash_message(){
