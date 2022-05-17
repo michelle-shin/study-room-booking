@@ -7,6 +7,10 @@
     text-decoration: none;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 .container{
     background-image: url('2456.jpg');
     height: 100%;
@@ -299,10 +303,6 @@ h3 {
     --error-color:#e74c3c;
 }
 
-* {
-    box-sizing: border-box;
-}
-
 .signup-body {
     background-color:#f9fafb;
     display: flex;
@@ -397,10 +397,12 @@ h3 {
     color:#fff;
     margin-top: 30px;
 }
+
 .right-side {
     float:right; 
     margin-left: 65%;
 }
+
 #logout{
     margin-left: 15%;
     font-size: 20px;

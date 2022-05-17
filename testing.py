@@ -2,15 +2,14 @@ import json
 from models.availability import Availability
 from models.room import Room
 from models.rooms import Rooms
+from models.credentials import Credentials
+from cryptography.fernet import Fernet
 
 def main():
-    BCIT = Rooms('data/rooms.json')
-    
-    id = "A01283117"
-    rooms = BCIT.get_booked_rooms(id)
+    cred = Credentials()
 
-    for room in rooms:
-        print(room[0], room[1])
+    encrypted = cred.encrypt_credentials()
+    print(encrypted)
 
 if __name__ == "__main__":
     main()

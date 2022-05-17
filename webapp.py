@@ -1,11 +1,43 @@
-from flask import Flask, jsonify, render_template, request
-import json
+from flask import Flask, render_template, request
 from models.rooms import Rooms
+from models.credentials import Credentials
 
 app = Flask(__name__)
 
 @app.route('/', methods=["GET","POST"]) 
-def homepage(): 
+def login(): 
+    try: 
+        return render_template('login.html', methods=['GET','POST'], login="pass"), 200
+    except:
+        return "", 400
+
+@app.route('/login', methods=["GET","POST"])
+@app.route('/home', methods=["GET","POST"]) 
+def page():
+    path = './data/rooms.json'
+    BCIT = Rooms(path)
+    id = request.form.get('Username')
+    password = request.form.get('Password')
+    signup_message = request.form.get('signup')
+    if(signup_message=="Sign Up"):
+        return render_template('signup.html', methods=['GET','POST']), 200
+    credentials = Credentials()
+    if(credentials.if_credentials_exist(id, password)):
+        return render_template('home.html', methods=['GET','POST'], rooms=BCIT.get_room_numbers()), 200
+    else:
+        return render_template('login.html', methods=['GET','POST'], id_exists=credentials.if_id_exists(id)), 200
+
+@app.route('/signup', methods=["GET","POST"]) 
+def signup():
+    id = request.form.get('studentID')
+    email = request.form.get('email')
+    password = request.form.get('password')
+    print(request.form.get('tumba'))
+    print(id, email, password)
+    return render_template('login.html', methods=['GET','POST'], login="pass"), 200
+
+@app.route('/home', methods=["GET","POST"]) 
+def home(): 
     path = './data/rooms.json'
     BCIT = Rooms(path)
     try:
@@ -23,8 +55,8 @@ def homepage():
     except:
         return "", 400
 
-@app.route('/home', methods=["GET","POST"]) 
-def home(): 
+@app.route('/rooms', methods=["GET","POST"]) 
+def rooms(): 
     path = './data/rooms.json'
     BCIT = Rooms(path)
     try:
@@ -34,8 +66,8 @@ def home():
             room, time_slot = booking.split(',')
             BCIT.get_room(room).book("A01283117", time_slot)
             BCIT.save_to_json()
-            return render_template('home.html', methods=['GET','POST'], rooms=BCIT.get_room_numbers()), 200
-        elif request.method == 'POST' and room_number is not None:
+            return render_template('room.html', methods=['GET','POST'], room=room, availabilities=BCIT.get_room_availability(room), booked_succesfuly="True"), 200
+        elif request.method == 'POST' and room_number is not None and room_number!="":
             return render_template('room.html', methods=['GET','POST'], room=room_number, availabilities=BCIT.get_room_availability(room_number)), 200
         else:
             return render_template('home.html', methods=['GET','POST'], rooms=BCIT.get_room_numbers()), 200
