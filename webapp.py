@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 from models.rooms import Rooms
 from models.credentials import Credentials
+from models.users import Users
 
 app = Flask(__name__)
 
@@ -30,11 +31,22 @@ def page():
 @app.route('/signup', methods=["GET","POST"]) 
 def signup():
     id = request.form.get('studentID')
+    name = request.form.get('name')
     email = request.form.get('email')
     password = request.form.get('password')
-    print(request.form.get('tumba'))
-    print(id, email, password)
-    return render_template('login.html', methods=['GET','POST'], login="pass"), 200
+    users = Users()
+    cred = Credentials()
+    if(users.if_id_exists(id) is True):
+        return render_template('signup.html', methods=['GET','POST'], id_exists="yes"), 200
+    users.add_new_user(id, name, email)
+    cred.save_credentials(id, password)
+    users.save_to_json()
+    cred.save_to_json(cred.encrypt_credentials())
+    try:
+        return render_template('login.html', methods=['GET','POST'], id_exists="exists"), 200
+    except:
+        return "", 400
+    
 
 @app.route('/home', methods=["GET","POST"]) 
 def home(): 

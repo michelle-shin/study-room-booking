@@ -51,10 +51,14 @@ class Credentials():
         key = Fernet.generate_key()
         self.credentials.append({"id":id,"password":password,"key":key.decode('utf-8')})
 
+    def print_credentials(self):
+        for credential in self.credentials:
+            print(credential)
+
     def encrypt_credentials(self):
         encrypted_credentials = []
-        encryped_credential = {}
         for credential in self.credentials:
+            encryped_credential = {}
             encryped_credential["id"]=credential["id"]
             fernet = Fernet(credential["key"].encode('utf-8'))
             encryped_credential["password"] = fernet.encrypt(credential["password"].encode()).decode('utf-8')
@@ -62,9 +66,9 @@ class Credentials():
             encrypted_credentials.append(encryped_credential)
         return encrypted_credentials
 
-    def save_to_json(self):
-        with open("data/credentials.json", "w") as outfile:
-            json.dump(self.credentials, outfile)
+    def save_to_json(self, credentials):
+        with open("data/login_credentials.json", "w") as outfile:
+            json.dump(credentials, outfile)
 
 
 

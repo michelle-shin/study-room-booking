@@ -8,15 +8,30 @@
     <link rel="stylesheet" href="../static/css/styles.css">
     <title>Sign UP</title>
 </head>
+
+{% if id_exists=="yes"%}
+<script>
+    window.onload = function flash_message(){
+        alert("ID already exists. Contact administrator.")
+    }
+</script>
+{% endif %}
+
 <body class="signup-body">
 
    <div class="signup-container">
-      <form method="post" action="/login" id="signup-form">
+      <form method="post" action="signup" id="signup-form">
           <h3 class="signup-h3">Sign up here</h3>
           <div class="form-control">
               <label for="studentID">Student ID</label>
               <input type="text" id="studentID" name="studentID" placeholder="Student ID must start with 'A0'">
               <small>Error message</small>
+          </div>
+
+          <div class="form-control">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Student name">
+            <small>Error message</small>
           </div>
 
           <div class="form-control">
@@ -140,15 +155,15 @@
             }
         }
 
-        form.addEventListener('submit', function(e){
-            e.preventDefault();
-            checkRequire([studentID, email, password, password2]);
-            checkLength(studentID,9,9);
-            checkPwLength(password,8,20);
-            // checkID(studentID)
-            checkEmail(email);
-            checkPasswordMatch(password , password2);
-        });
+        // form.addEventListener('submit', function(e){
+        //     e.preventDefault();
+        //     checkRequire([studentID, email, password, password2]);
+        //     checkLength(studentID,9,9);
+        //     checkPwLength(password,8,20);
+        //     // checkID(studentID)
+        //     checkEmail(email);
+        //     checkPasswordMatch(password , password2);
+        // });
 
     </script>
 
