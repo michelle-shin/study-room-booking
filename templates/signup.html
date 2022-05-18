@@ -89,13 +89,13 @@
         function validateForm() {
             //name
             if (nameInput.value.trim() =='') {
-                setError(nameInput, 'Name cannot be empty')
+                setError(nameInput, 'Name is required')
             }else {
                 setSuccess(nameInput);
             }
             //student id
             if (studentIdInput.value.trim()=='') {
-                setError(studentIdInput, 'Provide student ID')
+                setError(studentIdInput, 'Student ID is required')
             }else if(studentIdInput.value.trim().length < 9 || studentIdInput.value.trim().length > 9){
                 setError(studentIdInput, 'Student ID must be 9 charecters');
             }else {
@@ -103,7 +103,7 @@
             }
             //email
             if(emailInput.value.trim()=='') {
-                setError(emailInput, 'Provide email address')
+                setError(emailInput, 'Email is required')
             }else if(isEmailValid(emailInput.value)){
                 setSuccess(emailInput);
             }else {
@@ -111,7 +111,7 @@
             }
             //password
             if(passwordInput.value.trim()=='') {
-                setError(passwordInput, 'Password can not be empty');
+                setError(passwordInput, 'Password is required');
             }else if(passwordInput.value.trim().length <8 || passwordInput.value.trim().length >20){
                 setError(passwordInput, 'Password must be at least 8 characters')
             }else {
@@ -119,7 +119,7 @@
             }
             //confirm pw
             if(password2Input.value.trim()=='') {
-                setError(password2Input, 'Password can not be empty')
+                setError(password2Input, 'Password is required')
             }else if(password2Input.value !== passwordInput.value) {
                 setError(password2Input, 'Password does not match')
             }else {
