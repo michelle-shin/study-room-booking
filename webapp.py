@@ -47,6 +47,13 @@ def signup():
     except:
         return "", 400
     
+@app.route('/logout', methods=["GET","POST"]) 
+def logout():
+    try: 
+        return render_template('login.html', methods=['GET','POST'], login="pass"), 200
+    except:
+        return "", 400
+
 
 @app.route('/home', methods=["GET","POST"]) 
 def home(): 
