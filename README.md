@@ -1,4 +1,3 @@
-# acit2911
-This is a readme file for our project
+Study Room Booking Web App
 
-Study room booking web-app
+The app is based on Python Flask and is deployed in Microsoft Azure
