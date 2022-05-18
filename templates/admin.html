@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/styles.css') }}"
+    />
+    <link rel="stylesheet" href="../static/css/styles.css" />
+    <title>Administrator page</title>
+  </head>
+  <body>
+    <header>
+      <div class="title">
+        <div class="logo">
+          <a href="https://www.bcit.ca/">
+            <img src="/static/css/bcit-logo.png" class="img-fluid" />
+          </a>
+          <h2 class="title">Book Study Space</h2>
+        </div>
+        <div class=right-side placeholder="Student ID" id="stuID"><p>Name</p>
+          <a href="/logout" id="logout"><b>LOGOUT</b></a>
+      </div>
+      </div>
+      <nav class="nav">
+        <ul>
+          <li><a href="/rooms">View-by-Rooms</a></li>
+          <li><a href="/timeslots">View-by-Timeslots</a></li>
+          <li><a href="/view_bookings">View-Bookings</a></li>
+        </ul>
+      </nav>
+    </header>
+    <h2>Administrator Page</h2>
+    <form action="" method="POST">
+      <table class="tbroom" id="myTable">
+        <thead>
+          <tr>
+            <th>Student ID</th>
+            <th>Name</th>
+            <th>Room</th>
+            <th>Timeslots</th>
+            <th>Cancel</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>
+              <button
+                name="booking"
+                type="submit"
+                class="bt1"
+                value=""
+              >
+                Cancel
+              </button>
+            </td>
+          </tr>
+          <!-- {% endfor %} -->
+        </tbody>
+      </table>
+    </form>
+  </body>
+</html>
