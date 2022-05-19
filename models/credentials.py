@@ -53,6 +53,11 @@ class Credentials():
             if data[index]["id"]==id:
                 return data[index]["name"]
 
+    def get_password_from_id(self, id):
+        for credential in self.credentials:
+            if credential["id"]==id:
+                return credential["password"]
+
     def save_credentials(self, id, password):
         key = Fernet.generate_key()
         self.credentials.append({"id":id,"password":password,"key":key.decode('utf-8')})

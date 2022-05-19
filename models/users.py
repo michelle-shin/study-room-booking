@@ -20,6 +20,11 @@ class Users():
         for user in self.users:
             if user["id"]==id:
                 return user["name"]
+    
+    def get_email_from_id(self, id):
+        for user in self.users:
+            if user["id"]==id:
+                return user["email"]            
 
     def if_id_exists(self, id):
         for user in self.users:
