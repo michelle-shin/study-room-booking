@@ -10,6 +10,26 @@
 </head>
 <body class="login-main"> 
 
+    <script>
+        function forgot_password_flash() {
+          let id = prompt("Please enter your ID", "");
+          if (id == "") {
+            empty_flash();
+          }
+          else {
+              email_sent_flash();
+          }
+        }
+
+        function email_sent_flash() {
+            alert("Password will be sent to your mail if you have an account.")
+        }
+
+        function empty_flash() {
+            alert("You did not enter any ID.")
+        }
+    </script>
+
     {% if id_exists=="not approved" %}
     <script>
         window.onload = function flash_message(){
@@ -58,7 +78,7 @@
 
             <input type="submit" name="" value="Login">
             <input type="submit" name="signup" value="Sign Up">
-
+            <a onclick=forgot_password_flash()> Forgot Password </a>
         </form>  
     </div>
 </body>
