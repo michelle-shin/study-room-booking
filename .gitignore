@@ -16,3 +16,4 @@ models/__pycache__/test_rooms.cpython-39-pytest-7.1.2.pyc
 models/__pycache__/credentials.cpython-39.pyc
 models/__pycache__/test_tdd.cpython-39-pytest-7.1.2.pyc
 models/__pycache__/users.cpython-39.pyc
+__pycache__/appTest.cpython-39-pytest-7.1.2.pyc
