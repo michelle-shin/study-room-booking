@@ -6,7 +6,6 @@ class Users():
                 
         with open('./data/student_data.json') as fp:
             data = json.load(fp)
-        
         for index in range(len(data)):
             name = data[index]["name"]
             email = data[index]["email"]
