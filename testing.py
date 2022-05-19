@@ -11,7 +11,7 @@ def main():
 
     mail = Email()
     # mail.send_booking_confirmation("A01283117", "555", "8:00 - 9:00")
-    mail.send_password("A01111111")
+    mail.send_password("A01283112")
 
 if __name__ == "__main__":
     main()

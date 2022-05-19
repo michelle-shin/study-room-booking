@@ -40,6 +40,8 @@ def login_try():
         session['id'] = id
         session['name'] = 'admin'
         return redirect("/admin")
+    elif(users.if_not_approved(id)):
+        return render_template('login.html', methods=['GET','POST'], id_exists="not approved"), 200
     elif(credentials.if_credentials_exist(id, password)):
         session['id']=id
         session['name'] = users.get_name_from_id(id)

@@ -1,1 +1,26 @@
-[{"id": "A01283117", "name": "Goutam Thukral", "email": "goutamthukral@bcit.ca"}, {"id": "A01234567", "name": "Trent Johnston", "email": "trentjohn@bcit.ca"}, {"id": "A01111111", "name": "Shweta Bano", "email": "shwetabano@bcit.ca"}, {"id": "A01283112", "name": "Siddharth Thukral", "email": "sidharththukral@bcit.ca"}]
+[
+    {
+        "id": "A01283117",
+        "name": "Goutam Thukral",
+        "email": "goutamthukral@bcit.ca",
+        "approved": "yes"
+    },
+    {
+        "id": "A01234567",
+        "name": "Trent Johnston",
+        "email": "trentjohn@bcit.ca",
+        "approved": "yes"
+    },
+    {
+        "id": "A01111111",
+        "name": "Shweta Bano",
+        "email": "shwetabano@bcit.ca",
+        "approved": "yes"
+    },
+    {
+        "id": "A01283112",
+        "name": "Siddharth Thukral",
+        "email": "sidharththukral@bcit.ca",
+        "approved": "no"
+    }
+]
