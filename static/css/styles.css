@@ -298,6 +298,14 @@ h3 {
     margin-top: 30px;
 }
 
+.login-a {
+    margin-left: 30%;
+}
+
+.forgotpw{
+    margin-top: 30px;
+}
+
 :root {
     --success-color:#2ecc71;
     --error-color:#e74c3c;
@@ -404,3 +412,18 @@ h3 {
     font-size: 20px;
     float: right;
 }
+
+
+.inputBox p {
+    color: var(--error-color);
+    position: absolute;
+    left: 0;
+    bottom: 20;
+    visibility: hidden;
+    font-size: 14px
+}
+
+.error p {
+    visibility: visible;
+}
+

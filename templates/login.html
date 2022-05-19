@@ -55,11 +55,11 @@
     {% endif %}
 
     {% if id_exists=="yes" %}
-    <script>
+    <!-- <script>
         window.onload = function flash_message(){
             alert("Password wrong! Please retry.")
         }
-    </script>
+    </script> -->
     {% endif %}
 
     <div class="loginBox"> 
@@ -68,18 +68,89 @@
             <h3>Study Room Booking Login</h3>
             <div class="inputBox"> 
                 <label for="stuID">Student ID</label>
-                <input id="stuID" type="text" name="Username" placeholder="Student ID"> 
+                <input id="stuID" type="text" name="Username" placeholder="A0">
+                <p>Error message</p> 
             </div> 
 
             <div class="inputBox">
                 <label for="password">Password</label>
                 <input id="password" type="password" name="Password" placeholder="Password"> 
+                <p>Error message</p>
             </div> 
 
             <input type="submit" name="" value="Login">
             <input type="submit" name="signup" value="Sign Up">
-            <a onclick=forgot_password_flash()> Forgot Password </a>
+
+            <div class="forgotpw">
+                <a class="login-a" onclick=forgot_password_flash()> Forgot Password </a>
+            </div> 
         </form>  
     </div>
+    <script>
+        const form = document.querySelector('.login-form');
+        const studentIdInput = document.getElementById('stuID');
+        const passwordInput = document.getElementById('password');
+
+        form.addEventListener('submit', (event) => {
+            validateForm();
+            console.log(isFormValid())
+            if (isFormValid()==true) {
+                form.submit();
+            }else {
+                event.preventDefault();
+            }
+        });
+
+        function isFormValid(){
+            const inputContainers = form.querySelectorAll('.inputBox');
+            let result = true;
+            inputContainers.forEach((container)=>{
+                if(container.classList.contains('error')){
+                    result = false;
+                }
+            });
+            return result;
+        }
+
+        function validateForm() {
+            //student id
+            if (studentIdInput.value.trim()=='') {
+                setError(studentIdInput, 'Student ID is required')
+            }else if(studentIdInput.value.trim().length < 9 || studentIdInput.value.trim().length > 9){
+                setError(studentIdInput, 'Student ID must be 9 charecters');
+            }else {
+                setSuccess(studentIdInput);
+            }
+            //password
+            if(passwordInput.value.trim()=='') {
+                setError(passwordInput, 'Password is required');
+            }else if(passwordInput.value.trim().length <8 || passwordInput.value.trim().length >20){
+                setError(passwordInput, 'Password must be at least 8 characters')
+            }else {
+                setSuccess(passwordInput)
+            }
+        }
+
+        function setError(element, errorMessage) {
+            const parent = element.parentElement; 
+            if(parent.classList.contains('success')) {
+                parent.classList.remove('success');
+            }
+            parent.classList.add('error')
+            const paragraph = parent.querySelector('p');
+            paragraph.textContent = errorMessage;
+        }
+
+        function setSuccess(element) {
+            const parent = element.parentElement;
+            if(parent.classList.contains('error')) {
+                parent.classList.remove('error')
+            }
+            parent.classList.add('success')
+        }
+
+    </script>
+
+
 </body>
 </html>
