@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template, request, redirect, session
 from models.rooms import Rooms
 from models.credentials import Credentials
@@ -189,4 +190,5 @@ def admin():
         pass
 
 if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0")
+    port = os.environ.get("PORT", 5000)
+    app.run(debug=True, host="0.0.0.0",  port=port)
