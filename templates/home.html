@@ -6,6 +6,14 @@
             Book Study Space
         </title>
     </head>
+    <script>
+        function flash() {
+          confirm("Are you sure?")
+        }
+        function logout_flash() {
+          confirm("Confirm logout?")
+        }
+    </script>
     <body>
         <div class = "container">
         <header>   
@@ -17,7 +25,7 @@
                     <h2 class ="title">Book Study Space</h2>
                 </div>
                 <div class=right-side placeholder="Student ID" id="stuID"><p>{{ name }}</p>
-                    <a href="/logout" id="logout"><b>LOGOUT</b></a>
+                    <a href="/logout" id="logout" onclick="logout_flash()"><b>LOGOUT</b></a>
                 </div>
             </div>
             <nav class ="nav">

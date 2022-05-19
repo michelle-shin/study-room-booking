@@ -15,7 +15,9 @@ def webapp():
 
 @app.route('/login', methods=["GET","POST"])
 def login():
-    try: 
+    try:
+        if len(session)!=0:
+            return redirect('/home') 
         return render_template('login.html', methods=['GET','POST'], login="pass"), 200
     except:
         return "", 400
@@ -27,6 +29,8 @@ def login_try():
     id = request.form.get('Username')
     password = request.form.get('Password')
     signup_message = request.form.get('signup')
+    if len(session)!=0:
+        return redirect('/home') 
     if(signup_message=="Sign Up"):
         return redirect("/signup")
     credentials = Credentials()
@@ -44,10 +48,14 @@ def login_try():
 
 @app.route('/signup', methods=["GET","POST"]) 
 def signup():
+    if len(session)!=0:
+        return redirect('/home') 
     return render_template('signup.html', methods=['GET','POST']), 200
 
 @app.route('/signup-try', methods=["GET","POST"]) 
 def signup_try():
+    if len(session)!=0:
+        return redirect('/home') 
     id = request.form.get('studentID')
     name = request.form.get('name')
     email = request.form.get('email')
@@ -81,6 +89,8 @@ def home_page():
     try:
         booking = request.form.get('booking')
         room_number = request.form.get('room')
+        if len(session)==0:
+            return redirect('/login')
         if request.method == 'POST' and booking is not None:
             room, time_slot = booking.split(',')
             BCIT.get_room(room).book(session['id'], time_slot)
@@ -100,6 +110,8 @@ def rooms():
     try:
         booking = request.form.get('booking')
         room_number = request.form.get('room')
+        if len(session)==0:
+            return redirect('/login')
         if request.method == 'POST' and booking is not None:
             room, time_slot = booking.split(',')
             BCIT.get_room(room).book(session['id'], time_slot)
@@ -119,6 +131,8 @@ def timeslot():
     try:
         booking = request.form.get('booking')
         time_slot = request.form.get('timeslot')
+        if len(session)==0:
+            return redirect('/login')        
         if request.method == 'POST' and booking is not None:
             room, time_slot = booking.split(',')
             BCIT.get_room(room).book(session['id'], time_slot)
@@ -133,11 +147,15 @@ def timeslot():
 
 @app.route('/view_bookings', methods=["GET","POST"]) 
 def view_booking(): 
+    if len(session)==0:
+        return redirect('/login')
     id = session['id']
     path = './data/rooms.json'
     BCIT = Rooms(path)
     try:
         booking = request.form.get('booking')
+        if len(session)==0:
+            return redirect('/login')
         if request.method == 'POST' and booking is not None:
             room, time_slot = booking.split(',')
             BCIT.get_room(room).cancel_booking(id, time_slot)
@@ -153,6 +171,8 @@ def admin():
     users = Users()
     booking_details = []
     value = request.form.get('booking')
+    if len(session)==0:
+        return redirect('/login')
     if value is not None:
         room, id, time_slot = value.split(',')
         BCIT.get_room(room).cancel_booking(id, time_slot)
@@ -169,4 +189,4 @@ def admin():
         pass
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host="0.0.0.0")
