@@ -16,6 +16,11 @@ class Users():
     def add_new_user(self, id, name, email):
         self.users.append({"id":id, "name":name, "email":email})
 
+    def get_name_from_id(self, id):
+        for user in self.users:
+            if user["id"]==id:
+                return user["name"]
+
     def if_id_exists(self, id):
         for user in self.users:
             if user["id"]==id:

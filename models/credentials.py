@@ -27,6 +27,12 @@ class Credentials():
         
         return flag
 
+    def if_admin(self, id, password):
+        if id=="admin" and password=="password":
+            return True
+        else:
+            return False
+
     def if_id_exists(self, id):
 
         flag = False

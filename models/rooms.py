@@ -77,6 +77,16 @@ class Rooms():
                     rooms.append([room.number, availability["time_slot"]])
         return rooms
 
+    def get_all_booked_rooms(self):
+        booked_rooms = []
+        for room in self.rooms_list:
+            for availibility in room.availability:
+                booked_by = availibility["booked_by"]
+                timeslot = availibility["time_slot"]
+                if availibility["available"]=="No":
+                    booked_rooms.append([room.number, booked_by, timeslot])
+        return booked_rooms
+
     def to_json_list(self):
         json_list = []
         for room in self.rooms_list:
