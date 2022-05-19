@@ -9,10 +9,10 @@
 
     <script>
       function flash() {
-        confirm("Are you sure?")
+        return confirm("Are you sure?")
       }
       function logout_flash() {
-          window.confirm("Confirm logout?")
+          return confirm("Confirm logout?")
         }
     </script>
 
@@ -27,7 +27,7 @@
           <h2 class="title">Book Study Space</h2>
         </div>
         <div class=right-side placeholder="Student ID" id="stuID"><p>admin</p>
-          <a href="/logout" id="logout" onclick="logout_flash()"><b>LOGOUT</b></a>
+          <a href="/logout" id="logout" onclick="return logout_flash()"><b>LOGOUT</b></a>
       </div>
       </div>
       <!-- <nav class="nav">
@@ -63,7 +63,7 @@
                 type="submit"
                 class="bt1"
                 value="{{ booking[0] }},{{ booking[1] }},{{ booking[2] }}"
-                onclick="flash()"
+                onclick="return flash()"
               >
                 Cancel
               </button>

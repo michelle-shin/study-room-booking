@@ -7,10 +7,10 @@
         </title>
         <script>
             function flash() {
-              confirm("Are you sure?")
+              return confirm("Are you sure?")
             }
             function logout_flash() {
-              confirm("Confirm logout?")
+              return confirm("Confirm logout?")
             }
           </script>
     </head>
@@ -25,7 +25,7 @@
                 <h2 class ="title">Book Study Space</h2>
                 </div>
                 <div class=right-side placeholder="Student ID" id="stuID"><p>{{ name }}</p>
-                    <a href="/logout" id="logout" onclick="logout_flash()"><b>LOGOUT</b></a>
+                    <a href="/logout" id="logout" onclick="return logout_flash()"><b>LOGOUT</b></a>
                 </div>
             </div>
             <nav class ="nav">
