@@ -338,7 +338,7 @@ a.login-a:hover {
 
 .signup-h3 {
     text-align: center;
-    margin: 0 0 20px;
+    margin: 0 0 10px;
     color: #2f2f96;
     text-align: center;
     font-size: 24px;
@@ -447,4 +447,21 @@ a.login-a:hover {
 
 .admin-cancel:hover{
     color: white;
+}
+
+.back-a {
+    margin-left: 17%;
+}
+
+a.back-a {
+    color: black;
+}
+
+a.back-a:hover {
+    color: grey;
+}
+
+.back{
+    margin-top: 25px;
+    cursor: pointer;
 }
