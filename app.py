@@ -135,8 +135,8 @@ def home_page():
             room, time_slot = booking.split(',')
             BCIT.get_room(room).book(session['id'], time_slot)
             BCIT.save_to_json()
-            email = Email()
-            email.send_booking_confirmation(session['id'], room, time_slot)
+            # email = Email()
+            # email.send_booking_confirmation(session['id'], room, time_slot)
             return render_template('room.html', methods=['GET','POST'], room=room, availabilities=BCIT.get_room_availability(room), booked_succesfuly="True", name=session['name']), 200
         elif request.method == 'POST' and room_number is not None and room_number!="":
             return render_template('room.html', methods=['GET','POST'], room=room_number, availabilities=BCIT.get_room_availability(room_number), name=session['name']), 200
@@ -158,8 +158,8 @@ def rooms():
             room, time_slot = booking.split(',')
             BCIT.get_room(room).book(session['id'], time_slot)
             BCIT.save_to_json()
-            email = Email()
-            email.send_booking_confirmation(session['id'], room, time_slot)            
+            # email = Email()
+            # email.send_booking_confirmation(session['id'], room, time_slot)            
             return render_template('room.html', methods=['GET','POST'], room=room, availabilities=BCIT.get_room_availability(room), booked_succesfuly="True", name=session['name']), 200
         elif request.method == 'POST' and room_number is not None and room_number!="":
             return render_template('room.html', methods=['GET','POST'], room=room_number, availabilities=BCIT.get_room_availability(room_number), name=session['name']), 200
@@ -181,8 +181,8 @@ def timeslot():
             room, time_slot = booking.split(',')
             BCIT.get_room(room).book(session['id'], time_slot)
             BCIT.save_to_json()
-            email = Email()
-            email.send_booking_confirmation(session['id'], room, time_slot)            
+            # email = Email()
+            # email.send_booking_confirmation(session['id'], room, time_slot)            
             return render_template('timeslot_rooms.html', rooms=BCIT.get_rooms_with_timeslot(time_slot), time_slot=time_slot, name=session['name']), 200
         if time_slot is not None:
             return render_template('timeslot_rooms.html', rooms=BCIT.get_rooms_with_timeslot(time_slot), time_slot=time_slot, name=session['name']), 200
@@ -206,8 +206,8 @@ def view_booking():
             room, time_slot = booking.split(',')
             BCIT.get_room(room).cancel_booking(id, time_slot)
             BCIT.save_to_json()
-            email = Email()
-            email.send_cancelling_confirmation(session['id'], room, time_slot)            
+            # email = Email()
+            # email.send_cancelling_confirmation(session['id'], room, time_slot)            
         return render_template('view_bookings.html', bookings=BCIT.get_booked_rooms(id), name=session['name']), 200    
     except:
         return "", 400
@@ -225,8 +225,8 @@ def admin():
         room, id, time_slot = value.split(',')
         BCIT.get_room(room).cancel_booking(id, time_slot)
         BCIT.save_to_json()
-        email = Email()
-        email.send_cancelling_confirmation_admin(id, room, time_slot)  
+        # email = Email()
+        # email.send_cancelling_confirmation_admin(id, room, time_slot)  
     for booking in BCIT.get_all_booked_rooms():
         booking.append(users.get_name_from_id(booking[1]))
         booking_details.append(booking)
