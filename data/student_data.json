@@ -1,1 +1,26 @@
-[{"id": "A01283117", "name": "Goutam Thukral", "email": "goutamthukral@gmail.com", "approved": "yes"}, {"id": "A01234567", "name": "Goutam BCIT", "email": "goutam_thukral@hotmail.com", "approved": "yes"}, {"id": "A01111111", "name": "Shweta Bano", "email": "goutamthukral@gmail.com", "approved": "yes"}, {"id": "A01283112", "name": "Siddharth Thukral", "email": "goutamthukral@gmail.com", "approved": "no"}, {"id": "A01283118", "name": "Goutam Thukral", "email": "goutamthukral@gmail.com", "approved": "yes"}, {"id": "A01283119", "name": "Franx", "email": "francisburton36@temporary-email.com", "approved": "yes"}]
+[
+    {
+        "id": "A01283117",
+        "name": "Goutam Thukral",
+        "email": "goutamthukral@gmail.com",
+        "approved": "yes"
+    },
+    {
+        "id": "A01234567",
+        "name": "Goutam BCIT",
+        "email": "goutam_thukral@hotmail.com",
+        "approved": "yes"
+    },
+    {
+        "id": "A01111111",
+        "name": "Shweta Bano",
+        "email": "goutamthukral@gmail.com",
+        "approved": "yes"
+    },
+    {
+        "id": "A01283112",
+        "name": "Siddharth Thukral",
+        "email": "goutamthukral@gmail.com",
+        "approved": "no"
+    }
+]
