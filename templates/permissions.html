@@ -5,7 +5,7 @@
       href="{{ url_for('static', filename='css/styles.css') }}"
     />
     <link rel="stylesheet" href="../static/css/styles.css" />
-    <title>Administrator page</title>
+    <title>Permission page</title>
 
     <script>
       function flash() {
@@ -38,41 +38,38 @@
         </ul>
       </nav> -->
     </header>
-    <h2>Administrator Page</h2>
+    <h2></h2>
     <form action="/admin" method="POST">
       <table class="tbroom" id="myTable">
         <thead>
           <tr>
             <th>Student ID</th>
             <th>Name</th>
-            <th>Room</th>
-            <th>Timeslots</th>
-            <th>Cancel</th>
+            <th>Email</th>
+            <th>Approve</th>
           </tr>
         </thead>
         <tbody>
-          {% for booking in bookings %}
+          <!-- {% for booking in bookings %} -->
           <tr>
-            <td>{{ booking[1] }}</td>
-            <td>{{ booking[3] }}</td>
-            <td>{{ booking[0] }}</td>
-            <td>{{ booking[2] }}</td>
+            <td></td>
+            <td></td>
+            <td></td>
             <td>
               <button
                 name="booking"
                 type="submit"
                 class="bt1"
-                value="{{ booking[0] }},{{ booking[1] }},{{ booking[2] }}"
+                value=""
                 onclick="return flash()"
               >
-                Cancel
+                Approve
               </button>
             </td>
           </tr>
-          {% endfor %}
+          <!-- {% endfor %} -->
         </tbody>
       </table>
-      <button class="admin-cancel">Cancel all bookings</button>
     </form>
   </body>
 </html>
