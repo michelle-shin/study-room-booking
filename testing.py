@@ -10,10 +10,13 @@ import requests
 
 def main():
 
-    url = "https://prod-15.canadacentral.logic.azure.com:443/workflows/d72fb653f1734f0d838a4b96e6239068/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=VeSm7g3ly7vfi4Mja6hPyp1wj_Zy-tPxRQk1MY8y8rI"
-    obj = {"message":"hi from python2","email":"goutamthukral@gmail.com","subject":"Test"}
+    # url = "https://prod-15.canadacentral.logic.azure.com:443/workflows/d72fb653f1734f0d838a4b96e6239068/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=VeSm7g3ly7vfi4Mja6hPyp1wj_Zy-tPxRQk1MY8y8rI"
+    # obj = {"message":"hi from python2","email":"goutamthukral@gmail.com","subject":"Test"}
 
-    x = requests.post(url, json = obj)
-    print(x)
+    # x = requests.post(url, json = obj)
+    # print(x)
+
+    email = Email()
+    email.send_request("goutamthukral@gmail.com","Testing from python", "Oye kabutra tu ki karda")
 if __name__ == "__main__":
     main()
