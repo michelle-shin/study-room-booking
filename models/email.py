@@ -12,7 +12,6 @@ class Email():
         receiver = self.users.get_email_from_id(id)
         name = self.users.get_name_from_id(id)
         password = self.credentials.get_password_from_id(id)
-        receiver = "goutamthukral@gmail.com"
         subject = "Password for Study Room Booking Webapp"
         body = "Hi "+ name +"! Your password is "+ password
         self.send_email(receiver, subject, body)
@@ -25,17 +24,22 @@ class Email():
         body = "Hi "+ name +"! Your account has been approved by administrator."
         self.send_email(receiver, subject, body)
 
-    def send_cancelling_confirmation(self, id, room, time_slot):
+    def send_cancelling_confirmation_admin(self, id, room, time_slot):
         receiver = self.users.get_email_from_id(id)
-        receiver = "goutamthukral@gmail.com"
-        subject = "Booked room cancelled"
+        subject = "Booked room cancelled by admin"
         name = self.users.get_name_from_id(id)
         body = "Hi "+ name +"! Your booking for room "+ room +" for slot "+ time_slot +" has been cancelled by administrator."
         self.send_email(receiver, subject, body)
 
+    def send_cancelling_confirmation(self, id, room, time_slot):
+        receiver = self.users.get_email_from_id(id)
+        subject = "Booked room cancelled"
+        name = self.users.get_name_from_id(id)
+        body = "Hi "+ name +"! Your booking for room "+ room +" for slot "+ time_slot +" has been cancelled."
+        self.send_email(receiver, subject, body)
+
     def send_booking_confirmation(self, id, room, time_slot):
         receiver = self.users.get_email_from_id(id)
-        receiver = "goutamthukral@gmail.com"
         subject = "Room Booked confirmation"
         name = self.users.get_name_from_id(id)
         body = "Hi "+ name +"! Your booking for room "+ room +" for slot "+ time_slot +" has been confirmed."

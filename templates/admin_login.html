@@ -57,13 +57,20 @@
     </script>
     {% endif %}
 
+    {% if message=="wrong" %}
+    <script>
+        window.onload = function flash_message(){
+            alert("Wrong credentials.")
+        }
+    </script>
+    {% endif %}
+
     <div class="loginBox"> 
-        <img class="user" src="../static\css\login-icon.png" height="120px" width="120px">
         <form action="login-try" method="post" class="login-form">
-            <h3>Study Room Booking Login</h3>
+            <h3>Admin Login</h3>
             <div class="inputBox"> 
-                <label for="stuID">Student ID</label>
-                <input id="stuID" type="text" name="Username" placeholder="A0" required>
+                <label for="stuID">ID</label>
+                <input id="stuID" type="text" name="Username" placeholder="id" required>
                 <p>Error message</p> 
             </div> 
 
@@ -74,13 +81,7 @@
             </div>
 
             <input type="submit" name="signup" value="Login">
-        </form>  
-        <form action="login-try" method="post" class="login-form">
-            <input type="submit" name="signup" value="Sign Up">
-            <div class="forgotpw">
-                <a href="/forgotpassword" class="login-a" onclick=forgot_password_flash()> Forgot Password </a>
-            </div>
-        </form>         
+        </form>          
     </div>
 </body>
 </html>
