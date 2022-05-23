@@ -51,8 +51,18 @@
                     {% for availability in availabilities %}
                     {% set slot=availability["time_slot"] %}
                     <tr class="green">
-                        <td>{{ availability["time_slot"] }}</td>
-                        <td class="no">{{ availability["available"] }}</td>
+                        <td><b>{{ availability["time_slot"] }}</b></td>
+                        <td class="no">
+
+                            {% if availability["available"]=="Yes" %}
+                                <b>{{ availability["available"] }}</b>
+
+                            {% else %}
+                                {{ availability["available"] }}
+
+                            {% endif %}
+                        
+                        </td>
                         <td>
                         {% if availability["available"]=="Yes" %}
                             <button name="booking" type="submit" class="bt1" value="{{ room }},{{ slot }}" onclick=flash()>Book</button>

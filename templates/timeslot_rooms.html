@@ -43,14 +43,14 @@
         <thead>
           <tr>
             <th>Room</th>
-            <th>Timeslots</th>
+            <th>Timeslot</th>
             <th>Book</th>
           </tr>
         </thead>
         <tbody>
           {% for room in rooms %}
           <tr>
-            <td>{{ room.number }}</td>
+            <td><b>{{ room.number }}</b></td>
             <td>{{ time_slot }}</td>
             <td>
               <button
