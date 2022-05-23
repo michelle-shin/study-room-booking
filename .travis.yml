@@ -5,4 +5,4 @@ python:
 install: "pip install -r requirements.txt"
 
 script:
-- pytest appTest.py -v --cov
+- pytest testing_app.py -v --cov
