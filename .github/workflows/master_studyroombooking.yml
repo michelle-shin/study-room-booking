@@ -30,7 +30,7 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
       - name: Unit tests
-        run: pytest appTest.py -v --cov
+        run: pytest testing_app.py -v --cov
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
       
