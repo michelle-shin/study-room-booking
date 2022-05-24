@@ -16,7 +16,7 @@
     </script>
     <body>
         <div class = "container">
-        <header>   
+        <header> 
             <div class ="title">
                 <div class ="logo">
                     <a href="https://www.bcit.ca/">
@@ -36,20 +36,14 @@
                 </ul>
             </nav>
         </header>
+        <h2>Rooms available to Book</h2>
         <br>
             <form action="rooms" method="POST">
                 <div class="cards-container">
-                    <button type="submit" class="cards"></button>
-                    <button type="submit" class="cards"></button>
-                    <button type="submit" class="cards"></button>
-                </div>
-
-                <!-- <select name="room" id="room-select">
-                    <option value="">--Please choose a study room--</option>                    
                     {% for room in rooms %}
-                        <option name="room" value="{{ room }}">Room {{ room }}</option>
+                        <button name="room" value="{{ room }}" type="submit" class="cards">Room {{ room }}</button>
                     {% endfor %}
-                </select> -->
+                </div>
             </form>
     </body> 
 </html>

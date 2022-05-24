@@ -39,17 +39,10 @@
         <br>
             <form action="" method="POST">
                 <div class="cards-container">
-                    <button type="submit" class="cards"></button>
-                    <button type="submit" class="cards"></button>
-                    <button type="submit" class="cards"></button>
-                </div>
-                <!-- <select name="timeslot" id="time-select">
-                    <option>--Please choose a timeslot--</option>
-                    
                     {% for timeslot in timeslots %}
-                        <option name="timeslot" value="{{ timeslot }}">{{ timeslot }}</option>
+                        <button name="timeslot" value="{{ timeslot }}" type="submit" class="cards">{{ timeslot }}</button>
                     {% endfor %}
-                </select> -->
+                </div>
             </form>
     </body> 
 </html>

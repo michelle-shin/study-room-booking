@@ -14,9 +14,14 @@
       function logout_flash() {
         return confirm("Confirm logout?")
       }
+      function myFunc() {
+        if(document.URL.includes("view_bookings")){
+          document.getElementById("bookings").style.color = "pink";
+        }
+      }
     </script>
   </head>
-  <body>
+  <body onload="myFunc()">
     <header>
       <div class="title">
         <div class="logo">
