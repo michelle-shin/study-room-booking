@@ -73,7 +73,6 @@ def login_try():
     if(users.if_not_approved(id)):
         return render_template('login.html', methods=['GET','POST'], id_exists="not approved"), 200
     elif(credentials.if_credentials_exist(id, password)):
-        flash('exists')
         session['id']=id
         session['name'] = users.get_name_from_id(id)
         return redirect("/home")
@@ -100,8 +99,8 @@ def signup_try():
         return render_template('signup.html', methods=['GET','POST'], id_exists="yes"), 200
     users.add_new_user(id, name, email)
     cred.save_credentials(id, password)
-    email = Email()
-    email.send_account_creation_confirmation(id)
+    # email = Email()
+    # email.send_account_creation_confirmation(id)
     users.save_to_json()
     cred.save_to_json(cred.encrypt_credentials())
     try:
