@@ -30,16 +30,16 @@
           <a href="/logout" id="logout" onclick="return logout_flash()"><b>LOGOUT</b></a>
       </div>
       </div>
-      <!-- <nav class="nav">
+      <nav class="nav">
         <ul>
-          <li><a href="/rooms">View-by-Rooms</a></li>
-          <li><a href="/timeslots">View-by-Timeslots</a></li>
-          <li><a href="/admin">View-Bookings</a></li>
+          <li><a href="/admin/approvals">Approvals</a></li>
+          <li><a href="/admin">Bookings</a></li>
         </ul>
-      </nav> -->
+      </nav>
     </header>
     <h2></h2>
-    <form action="/admin" method="POST">
+    <form action="/admin/approvals" method="POST">
+      <br>
       <table class="tbroom" id="myTable">
         <thead>
           <tr>
@@ -50,24 +50,26 @@
           </tr>
         </thead>
         <tbody>
-          <!-- {% for booking in bookings %} -->
+
+          {% for user in users %}
           <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>{{ user.id }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
             <td>
               <button
-                name="booking"
+                name="approval"
                 type="submit"
                 class="bt1"
-                value=""
+                value="{{ user.id }}"
                 onclick="return flash()"
               >
                 Approve
               </button>
             </td>
           </tr>
-          <!-- {% endfor %} -->
+          {% endfor %}
+
         </tbody>
       </table>
     </form>

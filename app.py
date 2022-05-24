@@ -1,6 +1,6 @@
 import os
 from time import time
-from flask import Flask, render_template, request, redirect, session
+from flask import Flask, get_flashed_messages, render_template, request, redirect, session, flash, url_for
 from models.rooms import Rooms
 from models.credentials import Credentials
 from models.users import Users
@@ -12,6 +12,7 @@ app.secret_key = "abc"
 @app.route('/', methods=["GET","POST"]) 
 def webapp(): 
     try: 
+        session.clear()
         return redirect("/login")
     except:
         return "", 400
@@ -19,6 +20,8 @@ def webapp():
 @app.route('/admin/login', methods=["GET","POST"]) 
 def admin_login(): 
     try: 
+        if len(session)!=0:
+            return redirect('/home')
         return render_template('admin_login.html'), 200
     except:
         return "", 400
@@ -44,8 +47,12 @@ def admin_login_try():
 @app.route('/login', methods=["GET","POST"])
 def login():
     try:
+        messages = get_flashed_messages()
+        for message in messages:
+            if message=="exists":
+                return render_template('login.html', methods=['GET','POST'], id_exists="exists"), 200 
         if len(session)!=0:
-            return redirect('/home') 
+            return redirect('/home')   
         return render_template('login.html', methods=['GET','POST'], login="pass"), 200
     except:
         return "", 400
@@ -66,6 +73,7 @@ def login_try():
     if(users.if_not_approved(id)):
         return render_template('login.html', methods=['GET','POST'], id_exists="not approved"), 200
     elif(credentials.if_credentials_exist(id, password)):
+        flash('exists')
         session['id']=id
         session['name'] = users.get_name_from_id(id)
         return redirect("/home")
@@ -81,7 +89,7 @@ def signup():
 @app.route('/signup-try', methods=["GET","POST"]) 
 def signup_try():
     if len(session)!=0:
-        return redirect('/home') 
+        return redirect('/home')
     id = request.form.get('studentID')
     name = request.form.get('name')
     email = request.form.get('email')
@@ -95,7 +103,9 @@ def signup_try():
     users.save_to_json()
     cred.save_to_json(cred.encrypt_credentials())
     try:
-        return render_template('login.html', methods=['GET','POST'], id_exists="exists"), 200
+        # return render_template('login.html', methods=['GET','POST'], id_exists="exists"), 200
+        flash('exists')
+        return redirect(url_for('login'))
     except:
         return "", 400
 
@@ -150,6 +160,8 @@ def home_page():
 
 @app.route('/rooms', methods=["GET","POST"]) 
 def rooms(): 
+    if session['id']=="admin":
+        return redirect('/admin')
     path = './data/rooms.json'
     BCIT = Rooms(path)
     try:
@@ -217,6 +229,15 @@ def view_booking():
 
 @app.route('/admin', methods=["GET","POST"])
 def admin():
+    if len(session)==0:
+        return redirect('/login')
+    try:
+        return redirect("/admin/bookings")
+    except:
+        pass
+
+@app.route('/admin/bookings', methods=["GET","POST"])
+def admin_bookings():
     path = './data/rooms.json'
     BCIT = Rooms(path)
     users = Users()
@@ -236,6 +257,25 @@ def admin():
     try:
         if session['id']=='admin':
             return render_template('admin.html', bookings=booking_details, name=session['name']), 200
+        else:
+            return redirect('/login')
+    except:
+        pass
+
+@app.route('/admin/approvals', methods=["GET","POST"])
+def admin_approvals():
+    if len(session)==0:
+        return redirect('/login')
+    users = Users()
+    id = request.form.get('approval')
+    if id is not None:
+        users.approve_account(id)
+        email = Email()
+        # email.send_account_acceptance_confirmation(id)
+    try:
+        unapproved_users = users.get_unapproved_users()
+        if session['id']=='admin':
+            return render_template('admin_approve.html', name=session['name'], users=unapproved_users), 200
         else:
             return redirect('/login')
     except:

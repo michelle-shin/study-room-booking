@@ -10,12 +10,7 @@
 </head>
 <body class="login-main"> 
 
-    <script>
-
-        function email_sent_flash() {
-            alert("Password will be sent to your mail if you have an account.")
-        }
-    </script>
+    
 
     {% if id_exists=="sent" %}
     <script>
@@ -36,7 +31,7 @@
     {% if id_exists=="exists" %}
     <script>
         window.onload = function flash_message(){
-            alert("Account created. Please login.")
+            alert("Account created. You will be able to login after administrator has verified your details.")
         }
     </script>
     {% endif %}

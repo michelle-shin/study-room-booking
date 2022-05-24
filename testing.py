@@ -16,7 +16,12 @@ def main():
     # x = requests.post(url, json = obj)
     # print(x)
 
-    email = Email()
-    email.send_request("goutamthukral@gmail.com","Testing from python", "Oye kabutra tu ki karda")
+    # email = Email()
+    # email.send_request("goutamthukral@gmail.com","Testing from python", "Testing")
+
+    users = Users()
+    print(users.get_unapproved_users())
+    users.approve_account("A01283112")
+
 if __name__ == "__main__":
     main()

@@ -32,17 +32,16 @@
         </div>
         <div class=right-side placeholder="Student ID" id="stuID"><p>admin</p>
           <a href="/logout" id="logout" onclick="return logout_flash()"><b>LOGOUT</b></a>
+        </div>
       </div>
-      </div>
-      <!-- <nav class="nav">
+      <nav class="nav">
         <ul>
-          <li><a href="/rooms">View-by-Rooms</a></li>
-          <li><a href="/timeslots">View-by-Timeslots</a></li>
-          <li><a href="/admin">View-Bookings</a></li>
+          <li><a href="/admin/approvals">Approvals</a></li>
+          <li><a href="/admin">Bookings</a></li>
         </ul>
-      </nav> -->
+      </nav>
     </header>
-    <h2>Administrator Page</h2>
+    <h2>Bookings of the day</h2>
     {% if bookings|length!=0 %}
 
       <form action="/admin" method="POST">

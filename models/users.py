@@ -14,8 +14,7 @@ class Users():
             self.users.append({"id":id, "name":name, "email":email, "approved":approved})
 
     def add_new_user(self, id, name, email):
-        # self.users.append({"id":id, "name":name, "email":email, "approved":"no"})
-        self.users.append({"id":id, "name":name, "email":email, "approved":"yes"})
+        self.users.append({"id":id, "name":name, "email":email, "approved":"no"})
 
     def get_name_from_id(self, id):
         for user in self.users:
@@ -37,10 +36,17 @@ class Users():
             if user["id"]==id and user["approved"]=="no":
                 return True
 
+    def get_unapproved_users(self):
+        unapproved_users = []
+        for user in self.users:
+            if user["approved"]=="no":
+                unapproved_users.append(user)
+        return unapproved_users
+
     def approve_account(self, id):
         for user in self.users:
             if user["id"]==id:
-                user["approved"]=="yes"
+                user["approved"]="yes"
         self.save_to_json()
 
     def save_to_json(self):
