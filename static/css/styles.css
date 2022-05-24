@@ -12,7 +12,8 @@
 }
 
 .container{
-    background-image: url('2456.jpg');
+    /* background-image: url('2456.jpg'); */
+    background-color: rgb(200, 183, 183);
     height: 100%;
     width: 100%;
     background-repeat: no-repeat;
@@ -498,17 +499,15 @@ a.back-a:hover {
     display: flex;
     flex-wrap: wrap;
     margin-left: 20%;
-    padding-left: 140px;
-    padding-right: 100px;
     padding-top: 40px;
 }
 
 .cards {
     background-color: #2f2f96;
-    margin: 20px;
-    padding: 20px;
+    margin: 40px;
     min-width: 190px;
     min-height: 90px;
     border-color: transparent;
-    border-radius: 20px
+    border-radius: 20px;
+    margin-right: 80px;
 }
