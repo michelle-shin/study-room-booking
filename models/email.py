@@ -25,6 +25,13 @@ class Email():
         body = "Hi "+ name +"! Your account has been created.\nPlease wait for administrator to approve your account."
         self.send_request(receiver, subject, body)
 
+    def send_account_deletion_confirmation(self, id):
+        receiver = self.users.get_email_from_id(id)
+        subject = " Book Study Space Account rejected by administrator"
+        name = self.users.get_name_from_id(id)
+        body = "Hi "+ name +"! Your account request has been rejected by admin.\nPlease contact admin for more information."
+        self.send_request(receiver, subject, body)  
+
     def send_account_acceptance_confirmation(self, id):
         receiver = self.users.get_email_from_id(id)
         subject = "Account approved by administrator"

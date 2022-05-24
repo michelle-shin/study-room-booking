@@ -61,11 +61,20 @@
                 name="approval"
                 type="submit"
                 class="bt1"
-                value="{{ user.id }}"
+                value="accept,{{ user.id }}"
                 onclick="return flash()"
               >
                 Approve
               </button>
+              <button
+              name="approval"
+              type="submit"
+              class="bt1-red"
+              value="reject,{{ user.id }}"
+              onclick="return flash()"
+            >
+              Reject
+            </button>
             </td>
           </tr>
           {% endfor %}

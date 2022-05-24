@@ -9,6 +9,11 @@ from models.email import Email
 app = Flask(__name__)
 app.secret_key = "abc"
 
+@app.errorhandler(404)
+def page_not_found(e):
+    # note that we set the 404 status explicitly
+    return render_template('404.html'), 404
+
 @app.route('/', methods=["GET","POST"]) 
 def webapp(): 
     try: 
@@ -267,11 +272,20 @@ def admin_approvals():
     if len(session)==0:
         return redirect('/login')
     users = Users()
-    id = request.form.get('approval')
-    if id is not None:
-        users.approve_account(id)
-        email = Email()
-        # email.send_account_acceptance_confirmation(id)
+    cred = Credentials()
+    data = request.form.get('approval')
+    if data is not None:
+        action, id = data.split(',')
+        if(action=="accept"):
+            users.approve_account(id)
+            email = Email()
+            # email.send_account_acceptance_confirmation(id)
+        if(action=="reject"):
+            email = Email()
+            # email.send_account_deletion_confirmation(id) 
+            users.delete_account(id)
+            cred.delete_credentials(id)
+            cred.save_to_json(cred.encrypt_credentials())
     try:
         unapproved_users = users.get_unapproved_users()
         if session['id']=='admin':

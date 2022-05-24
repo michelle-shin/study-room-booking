@@ -77,6 +77,13 @@ class Credentials():
             encrypted_credentials.append(encryped_credential)
         return encrypted_credentials
 
+    def delete_credentials(self):
+        credentials=[]
+        for credential in self.credentials:
+            if credential["id"]!=id:
+                credentials.append(credential)
+        self.credentials = credentials
+
     def save_to_json(self, credentials):
         with open("data/login_credentials.json", "w") as outfile:
             json.dump(credentials, outfile)

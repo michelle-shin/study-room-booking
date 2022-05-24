@@ -28,11 +28,5 @@
         "name": "Jonathan Barbados",
         "email": "goutamthukral@gmail.com",
         "approved": "yes"
-    },
-    {
-        "id": "A01283190",
-        "name": "Michael Clarke",
-        "email": "michael@my.bcit.ca",
-        "approved": "no"
     }
 ]

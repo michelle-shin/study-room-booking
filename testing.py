@@ -20,8 +20,10 @@ def main():
     # email = Email()
     # email.send_request("goutamthukral@gmail.com","Testing from python", "Testing")
 
-    email = Email()
-    email.send_account_creation_confirmation("A01283117")
+    # email = Email()
+    # email.send_account_creation_confirmation("A01283117")
+    users = Users()
+    users.delete_account("A01283190")
 
 if __name__ == "__main__":
     main()

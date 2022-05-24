@@ -49,6 +49,14 @@ class Users():
                 user["approved"]="yes"
         self.save_to_json()
 
+    def delete_account(self, id):
+        users=[]
+        for user in self.users:
+            if user["id"]!=id:
+                users.append(user)
+        self.users=users
+        self.save_to_json()
+
     def save_to_json(self):
         with open("./data/student_data.json", "w") as outfile:
             json.dump(self.users, outfile)        

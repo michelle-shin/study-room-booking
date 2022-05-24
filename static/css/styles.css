@@ -181,8 +181,20 @@ footer {
 }
 
 .bt1:hover{
-    color:#E07A5F;
     padding: 4%;
+    cursor: pointer;
+}
+
+.bt1-red{
+    background-color: red ;
+    font-size: 15PX;
+    color: #dddddd;
+    padding: 3%;
+}
+
+.bt1-red:hover{
+    padding: 4%;
+    cursor: pointer;
 }
 
 .bt2{
@@ -452,7 +464,6 @@ a.login-a:hover {
     visibility: visible;
 }
 
-
 .admin-cancel{
     background-color: red ;
     font-size: 15px;
@@ -464,6 +475,7 @@ a.login-a:hover {
 
 .admin-cancel:hover{
     color: white;
+    cursor: pointer;
 }
 
 .back-a {
@@ -527,4 +539,23 @@ a.back-a:hover {
     cursor: pointer;
     color: white;
     /* background-color: rgba(0,0,0, 0.4); */
+}
+
+#main{
+    display: table;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+}
+
+.fof{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.fof h1{
+    font-size: 50px;
+    display: inline-block;
+    padding-right: 12px;
+    animation: type .5s alternate infinite;
 }
