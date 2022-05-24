@@ -18,9 +18,15 @@ class Email():
         body = "Hi "+ name +"! Your password is "+ password
         self.send_request(receiver, subject, body)
 
+    def send_account_creation_confirmation(self, id):
+        receiver = self.users.get_email_from_id(id)
+        subject = "Account created in Book Study Space"
+        name = self.users.get_name_from_id(id)
+        body = "Hi "+ name +"! Your account has been created.\nPlease wait for administrator to approve your account."
+        self.send_request(receiver, subject, body)
+
     def send_account_acceptance_confirmation(self, id):
         receiver = self.users.get_email_from_id(id)
-        receiver = "goutamthukral@gmail.com"
         subject = "Account approved by administrator"
         name = self.users.get_name_from_id(id)
         body = "Hi "+ name +"! Your account has been approved by administrator."

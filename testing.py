@@ -1,3 +1,4 @@
+import email
 import json
 from models.availability import Availability
 from models.room import Room
@@ -19,9 +20,8 @@ def main():
     # email = Email()
     # email.send_request("goutamthukral@gmail.com","Testing from python", "Testing")
 
-    users = Users()
-    print(users.get_unapproved_users())
-    users.approve_account("A01283112")
+    email = Email()
+    email.send_account_creation_confirmation("A01283117")
 
 if __name__ == "__main__":
     main()

@@ -100,6 +100,8 @@ def signup_try():
         return render_template('signup.html', methods=['GET','POST'], id_exists="yes"), 200
     users.add_new_user(id, name, email)
     cred.save_credentials(id, password)
+    email = Email()
+    email.send_account_creation_confirmation(id)
     users.save_to_json()
     cred.save_to_json(cred.encrypt_credentials())
     try:
