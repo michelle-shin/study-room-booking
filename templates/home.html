@@ -38,13 +38,18 @@
         </header>
         <br>
             <form action="rooms" method="POST">
-                <select name="room" id="room-select">
+                <div class="cards-container">
+                    <button type="submit" class="cards"></button>
+                    <button type="submit" class="cards"></button>
+                    <button type="submit" class="cards"></button>
+                </div>
+
+                <!-- <select name="room" id="room-select">
                     <option value="">--Please choose a study room--</option>                    
                     {% for room in rooms %}
                         <option name="room" value="{{ room }}">Room {{ room }}</option>
                     {% endfor %}
-                </select>
-                <button type="submit" class="bt2">Select</button>
+                </select> -->
             </form>
     </body> 
 </html>
