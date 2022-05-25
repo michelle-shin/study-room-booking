@@ -55,9 +55,12 @@ def admin_change_password():
         for message in messages:
             if message=="wrong":
                 return render_template('admin_change_password.html', message="wrong"), 200
-        if len(session)!=0 and session['id']!="admin":
-            return redirect('/home')
-        return render_template('admin_change_password.html'), 200
+        if len(session)==0:
+                return redirect('/home')
+        elif len(session)!=0 and session['id']=="admin":
+            return render_template('admin_change_password.html'), 200
+        else:
+            return redirect('/home')            
     except:
         return "", 400
 
