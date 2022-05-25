@@ -1,4 +1,11 @@
 Study Room Booking Web App
 
-The app is based on Python Flask and is deployed in Microsoft Azure
-Data for the webapp is stored in JSON files and is accessed through various defined classes and methods
+This web app is based on Python Flask and is deployed in Microsoft Azure.
+Flask is used to set up a server which accepts requests from end users like students or admins.
+
+Main use of the app is to select and book study rooms as per room numbers or timeslots.
+All the data for the webapp including booked room details, student details, their encrypted credentials are stored in JSON files.
+The data in these files is accessed through various defined classes and methods.
+
+Proper naming conventions are used for classes like Room, Availability, Users.
+
