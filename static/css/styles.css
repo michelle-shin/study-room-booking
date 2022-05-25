@@ -9,7 +9,7 @@
 
 * {
     box-sizing: border-box;
-}
+} 
 
 .container{
     /* background-image: url('2456.jpg'); */
@@ -559,3 +559,7 @@ a.back-a:hover {
     padding-right: 12px;
     animation: type .5s alternate infinite;
 }
+
+a.selected_nav{
+    color:#E07A5F
+}  

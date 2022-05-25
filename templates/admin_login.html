@@ -10,44 +10,6 @@
 </head>
 <body class="login-main"> 
 
-    <script>
-
-        function email_sent_flash() {
-            alert("Password will be sent to your mail if you have an account.")
-        }
-    </script>
-
-    {% if id_exists=="sent" %}
-    <script>
-        window.onload = function flash_message(){
-            alert("Password sent to the registered email.")
-        }
-    </script>
-    {% endif %}
-
-    {% if id_exists=="not approved" %}
-    <script>
-        window.onload = function flash_message(){
-            alert("Account not approved by Administrator yet.")
-        }
-    </script>
-    {% endif %}
-
-    {% if id_exists=="exists" %}
-    <script>
-        window.onload = function flash_message(){
-            alert("Account created. Please login.")
-        }
-    </script>
-    {% endif %}
-
-    {% if id_exists=="no"%}
-    <script>
-        window.onload = function flash_message(){
-            alert("ID doesn't exists. Please sign up.")
-        }
-    </script>
-    {% endif %}
 
     {% if id_exists=="yes" %}
     <script>

@@ -5,7 +5,7 @@
       href="{{ url_for('static', filename='css/styles.css') }}"
     />
     <link rel="stylesheet" href="../static/css/styles.css" />
-    <title>Administrator page</title>
+    <title>Book Study Space Admin</title>
 
     <script>
       function flash() {
@@ -37,14 +37,15 @@
       <nav class="nav">
         <ul>
           <li><a href="/admin/approvals">Approvals</a></li>
-          <li><a href="/admin">Bookings</a></li>
+          <li><a class="selected_nav" href="/admin">Bookings</a></li>
         </ul>
       </nav>
     </header>
-    <h2>Bookings of the day</h2>
+
     {% if bookings|length!=0 %}
 
-      <form action="/admin" method="POST">
+      <h2>Bookings of the day</h2>
+      <form action="/admin/bookings" method="POST">
         <table class="tbroom" id="myTable">
           <thead>
             <tr>
@@ -81,6 +82,9 @@
       <form action="/admin_clear_all" method="POST">
         <button class="admin-cancel" onclick="return bookings_cleared()">Clear all bookings</button>
       </form>
+
+    {% else %}
+    <h2>No bookings for the day</h2>  
 
     {% endif %}
   </body>

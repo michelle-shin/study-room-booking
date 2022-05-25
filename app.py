@@ -39,13 +39,41 @@ def admin_login_try():
         id = request.form.get('Username')
         password = request.form.get('Password')
         credentials = Credentials()
-        users = Users()
         if(credentials.if_admin(id, password)):
             session['id'] = id
             session['name'] = 'admin'
             return redirect("/admin")
         else:
             return render_template('admin_login.html', message="wrong"), 200
+    except:
+        return "", 400
+
+@app.route('/admin/change_password', methods=["GET","POST"]) 
+def admin_change_password(): 
+    try:
+        messages = get_flashed_messages()
+        for message in messages:
+            if message=="wrong":
+                return render_template('admin_change_password.html', message="wrong"), 200
+        if len(session)!=0 and session['id']!="admin":
+            return redirect('/home')
+        return render_template('admin_change_password.html'), 200
+    except:
+        return "", 400
+
+@app.route('/admin/change_password_try', methods=["GET","POST"]) 
+def admin_change_password_try(): 
+    try:
+        if len(session)!=0 and session['id']!="admin":
+            return redirect('/home')
+        old_password = request.form.get("old_password")
+        new_password = request.form.get("new_password")
+        cred = Credentials()
+        if cred.if_admin("admin", old_password) is False:
+            flash('wrong')
+            return redirect('/admin/change_password')
+        cred.change_admin_password(new_password)
+        return redirect('/admin/login')
     except:
         return "", 400
 
@@ -64,8 +92,6 @@ def login():
 
 @app.route('/login-try', methods=["GET","POST"]) 
 def login_try():
-    path = './data/rooms.json'
-    BCIT = Rooms(path)
     id = request.form.get('Username')
     password = request.form.get('Password')
     signup_message = request.form.get('signup')

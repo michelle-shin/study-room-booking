@@ -18,9 +18,7 @@ class Credentials():
 
 
     def if_credentials_exist(self, id, password):
-        
         flag = False
-
         for credential in self.credentials:
             if credential["id"]==id and credential["password"]==password:
                 flag = True
@@ -28,15 +26,14 @@ class Credentials():
         return flag
 
     def if_admin(self, id, password):
-        if id=="admin" and password=="password":
-            return True
-        else:
-            return False
+        for credential in self.credentials:
+            if credential["id"]==id and credential["password"]==password:
+                return True
+            else:
+                return False
 
     def if_id_exists(self, id):
-
         flag = False
-
         for credential in self.credentials:
             if credential["id"]==id:
                 flag = True
@@ -45,6 +42,12 @@ class Credentials():
             return "yes"
         else:
             return "no"
+
+    def change_admin_password(self, password):
+        for credential in self.credentials:
+            if credential["id"]=="admin":
+                credential["password"]=password
+        self.save_to_json(self.encrypt_credentials())
 
     def get_name_from_id(self, id):
         with open('./data/student_data.json') as fp:
@@ -77,7 +80,7 @@ class Credentials():
             encrypted_credentials.append(encryped_credential)
         return encrypted_credentials
 
-    def delete_credentials(self):
+    def delete_credentials(self, id):
         credentials=[]
         for credential in self.credentials:
             if credential["id"]!=id:

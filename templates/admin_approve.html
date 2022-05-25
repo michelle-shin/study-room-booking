@@ -5,7 +5,7 @@
       href="{{ url_for('static', filename='css/styles.css') }}"
     />
     <link rel="stylesheet" href="../static/css/styles.css" />
-    <title>Permission page</title>
+    <title>Book Study Space Admin</title>
 
     <script>
       function flash() {
@@ -32,55 +32,63 @@
       </div>
       <nav class="nav">
         <ul>
-          <li><a href="/admin/approvals">Approvals</a></li>
+          <li><a class="selected_nav" href="/admin/approvals">Approvals</a></li>
           <li><a href="/admin">Bookings</a></li>
         </ul>
       </nav>
     </header>
-    <h2></h2>
-    <form action="/admin/approvals" method="POST">
-      <br>
-      <table class="tbroom" id="myTable">
-        <thead>
-          <tr>
-            <th>Student ID</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Approve</th>
-          </tr>
-        </thead>
-        <tbody>
 
-          {% for user in users %}
-          <tr>
-            <td>{{ user.id }}</td>
-            <td>{{ user.name }}</td>
-            <td>{{ user.email }}</td>
-            <td>
-              <button
+    {% if users|length!=0 %}
+
+      <form action="/admin/approvals" method="POST">
+        <br>
+        <table class="tbroom" id="myTable">
+          <thead>
+            <tr>
+              <th>Student ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Approve</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            {% for user in users %}
+            <tr>
+              <td>{{ user.id }}</td>
+              <td>{{ user.name }}</td>
+              <td>{{ user.email }}</td>
+              <td>
+                <button
+                  name="approval"
+                  type="submit"
+                  class="bt1"
+                  value="accept,{{ user.id }}"
+                  onclick="return flash()"
+                >
+                  Approve
+                </button>
+                <button
                 name="approval"
                 type="submit"
-                class="bt1"
-                value="accept,{{ user.id }}"
+                class="bt1-red"
+                value="reject,{{ user.id }}"
                 onclick="return flash()"
               >
-                Approve
+                Reject
               </button>
-              <button
-              name="approval"
-              type="submit"
-              class="bt1-red"
-              value="reject,{{ user.id }}"
-              onclick="return flash()"
-            >
-              Reject
-            </button>
-            </td>
-          </tr>
-          {% endfor %}
+              </td>
+            </tr>
+            {% endfor %}
 
-        </tbody>
-      </table>
-    </form>
+          </tbody>
+        </table>
+      </form>
+
+    {% else %}
+    <h2>No pending approvals</h2>
+
+    {% endif %}
+
   </body>
 </html>

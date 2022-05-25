@@ -23,7 +23,9 @@ def main():
     # email = Email()
     # email.send_account_creation_confirmation("A01283117")
     users = Users()
-    users.delete_account("A01283190")
+    
+    cred = Credentials()
+    cred.change_admin_password("pass")
 
 if __name__ == "__main__":
     main()

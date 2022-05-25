@@ -16,7 +16,7 @@
       }
       function myFunc() {
         if(document.URL.includes("view_bookings")){
-          document.getElementById("bookings").style.color = "pink";
+          let bookings = document.getElementById("bookings_nav")
         }
       }
     </script>
@@ -38,41 +38,50 @@
         <ul>
           <li><a href="/rooms">View-by-Rooms</a></li>
           <li><a href="/timeslots">View-by-Timeslots</a></li>
-          <li><a href="/view_bookings">View-Bookings</a></li>
+          <li><a class="selected_nav" href="/view_bookings">View-Bookings</a></li>
         </ul>
       </nav>
     </header>
-    <h2>Rooms Booked</h2>
-    <form action="" method="POST">
-      <table class="tbroom" id="myTable">
-        <thead>
-          <tr>
-            <th>Room</th>
-            <th>Timeslots</th>
-            <th>Cancel</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for booking in bookings %} {% set room_number=booking[0] %} {% set
-          time_slot=booking[1] %}
-          <tr>
-            <td>{{ room_number }}</td>
-            <td>{{ time_slot }}</td>
-            <td>
-              <button
-                name="booking"
-                type="submit"
-                class="bt1"
-                value="{{ room_number }},{{ time_slot }}"
-                onclick="return flash()"
-              >
-                Cancel
-              </button>
-            </td>
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-    </form>
+
+    {% if bookings|length!=0 %}
+
+      <h2>Rooms Booked</h2>
+      <form action="" method="POST">
+        <table class="tbroom" id="myTable">
+          <thead>
+            <tr>
+              <th>Room</th>
+              <th>Timeslots</th>
+              <th>Cancel</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for booking in bookings %} {% set room_number=booking[0] %} {% set
+            time_slot=booking[1] %}
+            <tr>
+              <td>{{ room_number }}</td>
+              <td>{{ time_slot }}</td>
+              <td>
+                <button
+                  name="booking"
+                  type="submit"
+                  class="bt1"
+                  value="{{ room_number }},{{ time_slot }}"
+                  onclick="return flash()"
+                >
+                  Cancel
+                </button>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </form>
+
+    {% else %}
+    <h2>No Bookings made</h2>
+
+    {% endif %}
+
   </body>
 </html>
