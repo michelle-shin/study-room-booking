@@ -181,7 +181,11 @@ def home_page():
         if session['id']=="admin":
             return redirect('/admin')
         if request.method == 'POST' and booking is not None:
+            return render_template('room.html', methods=['GET','POST'], room=room_number, availabilities=BCIT.get_room_availability(room_number), name=session['name']), 200
+        if request.method == 'POST' and booking is not None:
             room, time_slot = booking.split(',')
+            if(BCIT.if_timeslot_booked(session['id'], time_slot)):
+                return render_template('room.html', methods=['GET','POST'], room=room, availabilities=BCIT.get_room_availability(room), booked_succesfuly="exists", name=session['name']), 200
             BCIT.get_room(room).book(session['id'], time_slot)
             BCIT.save_to_json()
             email = Email()
@@ -207,6 +211,8 @@ def rooms():
             return redirect('/login')
         if request.method == 'POST' and booking is not None:
             room, time_slot = booking.split(',')
+            if(BCIT.if_timeslot_booked(session['id'], time_slot)):
+                return render_template('room.html', methods=['GET','POST'], room=room, availabilities=BCIT.get_room_availability(room), booked_succesfuly="exists", name=session['name']), 200
             BCIT.get_room(room).book(session['id'], time_slot)
             BCIT.save_to_json()
             email = Email()
@@ -227,15 +233,19 @@ def timeslot():
         booking = request.form.get('booking')
         time_slot = request.form.get('timeslot')
         if len(session)==0:
-            return redirect('/login')        
+            return redirect('/login') 
+        if(BCIT.if_timeslot_booked(session['id'], time_slot)):
+            return render_template('timeslot.html', timeslots=BCIT.get_time_slots(), name=session['name'], message="exists"), 200       
         if request.method == 'POST' and booking is not None:
             room, time_slot = booking.split(',')
+            if(BCIT.if_timeslot_booked(session['id'], time_slot)):
+                return render_template('timeslot.html', timeslots=BCIT.get_time_slots(), name=session['name'], message="exists"), 200  
             BCIT.get_room(room).book(session['id'], time_slot)
             BCIT.save_to_json()
             email = Email()
             email.send_booking_confirmation(session['id'], room, time_slot)            
             return render_template('timeslot_rooms.html', rooms=BCIT.get_rooms_with_timeslot(time_slot), time_slot=time_slot, name=session['name']), 200
-        if time_slot is not None and time_slot!="--Please choose a timeslot--":
+        if time_slot is not None:
             return render_template('timeslot_rooms.html', rooms=BCIT.get_rooms_with_timeslot(time_slot), time_slot=time_slot, name=session['name']), 200
         else:
             return render_template('timeslot.html', timeslots=BCIT.get_time_slots(), name=session['name']), 200

@@ -87,6 +87,12 @@ class Rooms():
                     booked_rooms.append([room.number, booked_by, timeslot])
         return booked_rooms
 
+    def if_timeslot_booked(self, id, time_slot):
+        for room in self.rooms_list:
+            for availability in room.availability:
+                if availability["time_slot"]==time_slot and availability["booked_by"]==id:
+                    return True
+
     def clear_all_bookings(self):
         for room in self.rooms_list:
             for availibility in room.availability:

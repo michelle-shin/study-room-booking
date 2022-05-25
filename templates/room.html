@@ -8,7 +8,7 @@
 
         <script>
             function flash(){
-                alert("Room Booked Successfuly.")
+                alert("Booking room for the chosen timeslot.");
             }
             function logout_flash() {
                 return confirm("Confirm logout?")
@@ -16,7 +16,16 @@
         </script>
         
     </head>
-    <body>     
+    <body>    
+        
+        {% if booked_succesfuly=="exists" %}
+        <script>
+            window.onload = function flash_message(){
+                alert("Booking for this timeslot already exists. Either cancel previous booking or choose another timeslot.")
+            }
+        </script>
+        {% endif %}
+
         <header>
         <div class ="title">
             <div class ="logo">
