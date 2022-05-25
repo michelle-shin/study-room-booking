@@ -467,7 +467,8 @@ a.login-a:hover {
 .admin-cancel{
     background-color: red ;
     font-size: 15px;
-    color: #000000;
+    font-weight: bold;
+    color: white;
     margin-top: 30px;
     margin-left: 45%;
     padding: 12px;
@@ -476,6 +477,7 @@ a.login-a:hover {
 .admin-cancel:hover{
     color: white;
     cursor: pointer;
+    padding: 14px;
 }
 
 .back-a {

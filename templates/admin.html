@@ -44,7 +44,7 @@
 
     {% if bookings|length!=0 %}
 
-      <h2>Bookings of the day</h2>
+      <h2>Bookings for the Day</h2>
       <form action="/admin/bookings" method="POST">
         <table class="tbroom" id="myTable">
           <thead>
@@ -80,11 +80,11 @@
         </table>
       </form>
       <form action="/admin_clear_all" method="POST">
-        <button class="admin-cancel" onclick="return bookings_cleared()">Clear all bookings</button>
+        <button class="admin-cancel" onclick="return bookings_cleared()">Clear All Bookings</button>
       </form>
 
     {% else %}
-    <h2>No bookings for the day</h2>  
+    <h2>No Bookings for the day</h2>  
 
     {% endif %}
   </body>
