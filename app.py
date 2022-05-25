@@ -103,6 +103,8 @@ def login_try():
     users = Users()
     if(users.if_not_approved(id)):
         return render_template('login.html', methods=['GET','POST'], id_exists="not approved"), 200
+    elif(credentials.if_admin(id,password)):
+        return render_template('login.html', methods=['GET','POST'], id_exists="no"), 200
     elif(credentials.if_credentials_exist(id, password)):
         session['id']=id
         session['name'] = users.get_name_from_id(id)
@@ -132,8 +134,8 @@ def signup_try():
     cred.save_credentials(id, password)
     users.save_to_json()
     cred.save_to_json(cred.encrypt_credentials())
-    # email = Email()
-    # email.send_account_creation_confirmation(id)
+    email = Email()
+    email.send_account_creation_confirmation(id)
     try:
         flash('exists')
         return redirect(url_for('login'))
@@ -305,10 +307,10 @@ def admin_approvals():
         if(action=="accept"):
             users.approve_account(id)
             email = Email()
-            # email.send_account_acceptance_confirmation(id)
+            email.send_account_acceptance_confirmation(id)
         if(action=="reject"):
             email = Email()
-            # email.send_account_deletion_confirmation(id) 
+            email.send_account_deletion_confirmation(id) 
             users.delete_account(id)
             cred.delete_credentials(id)
             cred.save_to_json(cred.encrypt_credentials())
