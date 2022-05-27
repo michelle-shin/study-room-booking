@@ -9,17 +9,16 @@
 
     <script>
       function flash() {
-        return confirm("Are you sure?")
+        return confirm("Are you sure?");
       }
       function logout_flash() {
-          return confirm("Confirm logout?")
-        }
+        return confirm("Confirm logout?");
+      }
 
       function bookings_cleared() {
-        return alert("All the bookings have been cleared for the day.")
+        return alert("All the bookings have been cleared for the day.");
       }
     </script>
-
   </head>
   <body>
     <header>
@@ -30,8 +29,11 @@
           </a>
           <h2 class="title">Book Study Space</h2>
         </div>
-        <div class=right-side placeholder="Student ID" id="stuID"><p>admin</p>
-          <a href="/logout" id="logout" onclick="return logout_flash()"><b>LOGOUT</b></a>
+        <div class="right-side" placeholder="Student ID" id="stuID">
+          <p>admin</p>
+          <a href="/logout" id="logout" onclick="return logout_flash()"
+            ><b>LOGOUT</b></a
+          >
         </div>
       </div>
       <nav class="nav">
@@ -44,47 +46,49 @@
 
     {% if bookings|length!=0 %}
 
-      <h2>Bookings of the day</h2>
-      <form action="/admin/bookings" method="POST">
-        <table class="tbroom" id="myTable">
-          <thead>
-            <tr>
-              <th>Student ID</th>
-              <th>Name</th>
-              <th>Room</th>
-              <th>Timeslots</th>
-              <th>Cancel</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for booking in bookings %}
-            <tr>
-              <td>{{ booking[1] }}</td>
-              <td>{{ booking[3] }}</td>
-              <td>{{ booking[0] }}</td>
-              <td>{{ booking[2] }}</td>
-              <td>
-                <button
-                  name="booking"
-                  type="submit"
-                  class="bt1"
-                  value="{{ booking[0] }},{{ booking[1] }},{{ booking[2] }}"
-                  onclick="return flash()"
-                >
-                  Cancel
-                </button>
-              </td>
-            </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-      </form>
-      <form action="/admin_clear_all" method="POST">
-        <button class="admin-cancel" onclick="return bookings_cleared()">Clear all bookings</button>
-      </form>
+    <h2>Bookings for the Day</h2>
+    <form action="/admin/bookings" method="POST">
+      <table class="tbroom" id="myTable">
+        <thead>
+          <tr>
+            <th>Student ID</th>
+            <th>Name</th>
+            <th>Room</th>
+            <th>Timeslots</th>
+            <th>Cancel</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for booking in bookings %}
+          <tr>
+            <td>{{ booking[1] }}</td>
+            <td>{{ booking[3] }}</td>
+            <td>{{ booking[0] }}</td>
+            <td>{{ booking[2] }}</td>
+            <td>
+              <button
+                name="booking"
+                type="submit"
+                class="bt1"
+                value="{{ booking[0] }},{{ booking[1] }},{{ booking[2] }}"
+                onclick="return flash()"
+              >
+                Cancel
+              </button>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </form>
+    <form action="/admin_clear_all" method="POST">
+      <button class="admin-cancel" onclick="return bookings_cleared()">
+        Clear All Bookings
+      </button>
+    </form>
 
     {% else %}
-    <h2>No bookings for the day</h2>  
+    <h2>No Bookings for the Day</h2>
 
     {% endif %}
   </body>
